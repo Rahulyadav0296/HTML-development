@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Unit Section</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Urbanist:wght@300;400&display=swap');
+
+        /* Absolute Lenght: These are fixed and a lenght expressed in anby of this will appear ias exactly that size 
+         */
+        /* Relatively Lenght: specify a lenght relative to another property */
+
+        /* px : is absolute Lenght */
+        /* % : is relative lenght  100% = 16px and 1em = 16px and 1 rem = 10px*/
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            text-align: justify;
+            text-decoration: underline;
+            -moz-text-decoration-line: underline;
+            text-decoration-color: red;
+            -moz-text-decoration-color: black;
+
+            /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+        }
+
+        body{
+            display: grid;
+            text-align: center;
+            place-items: center;
+        }
+
+        .hero-section{
+            width: 50%;
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2em;
+        }
+
+        li {
+            font-size: 1.4em;
+            list-style-type: none
+        }
+
+        .parent {
+            /* font-size: 10px; */
+            font-size: 1rem;
+            
+        }
+
+        /* generally 100% = 16px  */
+    </style>
+</head>
+
+<body>
+    <section class="hero-section">
+        <br />
+        <h1>Welcome To the CSS World</h1>
+        <br />
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias ducimus fugiat corporis cum quidem
+            laboriosam amet blanditiis ex eos est similique, ratione nostrum consequatur. Sint nisi error sapiente
+            unde.z
+        </p>
+
+        <div class="parant">
+            <ul>
+                <li>This is List one</li>
+                <li>This is List Two</li>
+                <li>This is List Three</li>
+                <li>This is List Four</li>
+            </ul>
+        </div>
+    </section>
+</body>
+
+</html>

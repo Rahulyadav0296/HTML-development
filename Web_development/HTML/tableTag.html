@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Table tag</title>
+    <style>
+        table{
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        tr, td, th{
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Theory about Table:
+    HTML table allows to web developer to arrange the data in row in column.
+    we must write everything inside the table tag -->
+    <h1>School Time Table </h1>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="7">TIME TABLE</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th rowspan="5">Hourse</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+            <tr>
+                <td>Math</td>
+                <td>Science</td>
+                <td>Hindi</td>
+                <td>English</td>
+                <td>Politics</td>
+                <td>Sanskrit</td>
+            </tr>
+            <tr>
+                <td colspan="6">Lunch</td>
+            </tr>
+            <tr>
+                <td>Math</td>
+                <td>Science</td>
+                <td>Hindi</td>
+                <td>English</td>
+                <td>Politics</td>
+                <td rowspan="2">Games</td>
+            </tr>
+            <tr>
+                <td>Math</td>
+                <td>Science</td>
+                <td>Hindi</td>
+                <td>English</td>
+                <td>Politics</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

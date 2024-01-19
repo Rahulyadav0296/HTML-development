@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body{
+            background-color: cornflowerblue;
+            text-align: center;
+            justify-content: center;
+            margin: 250px 0px;
+        }
+
+        .container{
+            padding: 10px 0px;
+        }
+        
+        .main-container{
+            border: 2px solid black;
+            border-radius: 30px;
+            padding: 10px 0px;
+            margin: 0px 150px;
+            background-color: bisque;
+        }
+
+        .height, .weight{
+            padding: 10px;
+            display: block;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .btn{
+            padding: 10px;
+            background-color:rgb(29, 73, 118);
+            color: white;
+            font-weight: bold;
+            border-radius: 20px;
+            margin: 15px;
+            cursor: pointer;
+        }
+
+        .result{
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-container">
+            <h1>BMI Calculator</h1>
+            <div class="height">
+                <span class="span">Height (in cm) </span>
+                <input type="text" id="inputOne">
+            </div> 
+            <div class="weight">
+                <span class="span">Weight (in cm) </span>
+                <input type="text" id="inputTwo" >
+            </div>
+            <div class="result">
+                <!-- Display the result -->
+            </div>
+            <button class="btn">Calculate</button>
+        </div>
+    </div>
+</body>
+<script>
+    const height = document.getElementById("inputOne")
+    const weight = document.getElementById("inputTwo")
+    
+    const Calculate = document.querySelector(".btn")
+    const result = document.querySelector(".result")
+    Calculate.addEventListener("click", () => {
+        const output = ((weight.value/height.value)/height.value)*10000
+        console.log(`Height and weight is ${height.value}, ${weight.value} and the vlaue is ${output}`);
+        result.innerHTML = output
+    })
+</script>
+</html>

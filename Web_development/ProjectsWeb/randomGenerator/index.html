@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Generator</title>
+    <style>
+      body {
+        background-color: cadetblue;
+      }
+
+      .container {
+        text-align: center;
+        justify-content: center;
+        margin: 200px;
+      }
+
+      .btn {
+        padding: 10px;
+        border-radius: 30px;
+        background-color: blueviolet;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0px 5px 5px rgb(9, 88, 8);
+      }
+      .btn:hover {
+        padding: 10px;
+        border-radius: 30px;
+        background-color: white;
+        font-weight: bold;
+        color: blueviolet;
+        box-shadow: 0px 5px 5px rgb(180, 22, 22);
+      }
+
+      #quote {
+        padding: 10px;
+        margin: 15px;
+        font-size: 25px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Random Quote</h1>
+        <p style="font-size: 20px">Wanna see a random quote ?</p>
+        <button class="btn">Generate</button>
+      </div>
+
+      <div id="quote">
+        <!-- Quote will be displayed here -->
+      </div>
+    </div>
+  </body>
+  <script>
+    const generate = document.querySelector(".btn");
+    const quotes = document.getElementById("quote");
+    generate.addEventListener("click", () => {
+      console.log("Qoutes is Printing");
+      const qoutes = [
+        "Progress is quiet until it isn't.",
+        "Every battle is lost or won in the arena of the mind.",
+        "Love is free but it'll cost you.",
+        "Discipline is the highest form of self-love.",
+        "Time the time before the time time you",
+        "Life is an outward projection of one's perceived self value.",
+        "The secret to life is to love who you are.",
+        "Look for opportunities in every change in your life.",
+        "Persist while others are quitting.",
+        "and so on.",
+      ];
+
+      const randomValue = qoutes[Math.floor(Math.random() * qoutes.length)];
+      quotes.innerText = randomValue;
+    });
+  </script>
+</html>

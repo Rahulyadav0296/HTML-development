@@ -1,0 +1,86 @@
+<!-- The <form> tag is used to create an HTMl form for user input  -->
+
+<!-- The input HTML input is used to create iteractive controls for web-based forms 
+to accept data from the user. we must write inside the tag. -->
+
+<!-- <input type="text" name ="username"> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form Tag</title>
+</head>
+<body>
+    <h2>HTML FOrm Tag</h2>
+    <form action="">
+        <div>
+
+            <label for="password">password</label>
+            <input type="password" id = "password" />
+        </div>
+        <div>
+            <label for="number">Number</label>
+            <input type="number" id = "number" max="5"/>
+        </div>
+        <div>
+            <label for="gender">Gender</label>
+            <input type="radio" name="gender" value="male" /> Male
+            <input type="radio" name="gender" value="female" /> Female
+        </div>
+
+        <!-- checkbox -->
+        <div>
+            <label for="hobbies">What is Hobbies</label>
+            <input type="checkbox" name="intrest" value="music" />music
+            <input type="checkbox" name="intrest" value="music" />sports 
+        </div>
+
+        <!-- Drop Down -->
+        <!-- <div>
+            <label for="country"> Fav. Counry: </label>
+            <select name="country" id="country">
+                <option value="usa">USA</option>
+                <option value="IND">India</option>
+                <option value="cannada">Cannanda</option>
+            </select>
+        </div> -->
+<!-- 
+        <div>
+            <label for="country">Favourite Country: </label>
+            <input type="text" name="country" id="country" list="contries">
+            <datalist id = "contries">
+                <option value="USA"></option>
+                <option value="India"></option>
+                <option value="Uttrakhand"></option>
+                <option value="Canada"></option>
+            </datalist>
+        </div> -->
+
+        <!-- Text Area -->
+        <!-- <div>
+            <label for="commment">
+                Message To: 
+            </label>
+        <textarea name="comments" cols="30" rows="5" placeholder="Enter Your Comment"></textarea>
+        </div>
+
+        <div>
+            <label for="file">Select File</label>
+            <input type="file" name="fileupload" id="">
+        </div>
+
+        <div>
+            <input type="submit" value="submit"/>
+        </div>
+        <button type="submit">Submit</button> -->
+
+        <div>
+            <label for="email">Enter Your Email: </label>
+            <input type="email" size="30" placeholder="Enter Your Email" name="email" required autocomplete="off"/>
+        </div>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tip Calculator</title>
+    <style>
+      body {
+        background-image: url("https://images.unsplash.com/photo-1626446636985-c583c1d5b237?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTUzfHx0aXAlMjBjYWxjdWxhdG9yfGVufDB8fDB8fHww");
+        font-family: "Raleway", sans-serif;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+      }
+
+      .container {
+        width: 350px;
+        height: 520px;
+        background-image: url("https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTIzfHx0aXAlMjBjYWxjdWxhdG9yfGVufDB8fDB8fHww");
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        border-radius: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        position: absolute;
+        left: 50%;
+        top: -60px;
+        width: 300px;
+        transform: translateX(-50%);
+        background-color: #ff851b;
+        color: #000;
+        font-weight: bold;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        font-size: 18px;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .wrapper {
+        padding: 20px;
+        font-weight: bold;
+      }
+
+      input,
+      select {
+        width: 80%;
+        border: none;
+        border-bottom: 1px solid #750606;
+        padding: 10px;
+      }
+
+      input:focus,
+      select:focus {
+        border: 1px solid #0074d9;
+        outline: none;
+      }
+
+      select {
+        width: 88% !important;
+      }
+
+      button {
+        margin: 20px auto;
+        width: 150px;
+        height: 50px;
+        background-color: #395ecc;
+        color: #fff;
+        font-weight: bold;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .tip {
+        text-align: center;
+        font-size: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+        display: none;
+        padding: 10px 10px;
+        margin: 0px 60px;
+        border: 2px solid black;
+        border-radius: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>TIP CALCULATOR</h1>
+      <div class="wrapper">
+        <p>Bill Amount</p>
+        <input type="text" id="amount" placeholder="Amount to be paid" /> ₹
+        <p>How was the service ?</p>
+        <select id="services">
+          <option selected disabled hidden>Select</option>
+          <option value="0.25">25% - Top Notch</option>
+          <option value="0.20">20% - Excellent</option>
+          <option value="0.15">15% - Good</option>
+          <option value="0.10">10% - Bad</option>
+          <option value="0.05">5% - Worst</option>
+        </select>
+        <p>Total number of persons</p>
+        <input
+          type="text"
+          id="persons"
+          placeholder="Number of people sharing the bill"
+        />
+        <button id="calculate">Calculate</button>
+      </div>
+
+      <div class="tip">
+        <p>Tip Amount</p>
+        <span id="total">0</span>₹ <br />
+        <span id="each">each</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    window.onload = () => {
+      document.querySelector("#calculate").onclick = calculateTip;
+    };
+
+    function calculateTip() {
+      const amount = document.getElementById("amount").value;
+      const service = document.getElementById("services").value;
+      const person = document.getElementById("persons").value;
+      const calculate = document.getElementById("calculate");
+
+      const tip = document.querySelector(".tip");
+      const total = document.getElementById("total");
+      const each = document.getElementById("each");
+
+      if (amount === "" && service === "Select") {
+        alert("Please Enter Valid Values");
+        return;
+      }
+6
+      if (person === '1'){
+        each.style.display = "none"
+      }
+      else{
+        each.style.display = "block"
+      }
+      
+      let result = ((amount * service) / person).toFixed(2);
+      tip.style.display = "block"
+      total.innerHTML = result
+    }
+  </script>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Filter And Search</title>
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <style>
+      body {
+        background-color: rgb(35, 40, 87);
+        color: white;
+      }
+      .wrapper {
+        background-color: rgb(1, 1, 14);
+        text-align: center;
+        justify-content: center;
+        margin: 20px;
+        padding: 20px 0px;
+        border-radius: 20px;
+      }
+
+      .container {
+        padding: 10px 0px;
+      }
+
+      #search-input {
+        padding: 10px 10px;
+        margin: 10px;
+        border-radius: 30px;
+        width: 250px;
+      }
+
+      button {
+        padding: 10px 10px;
+        margin: 10px;
+        border-radius: 15px;
+        background-color: lightslategrey;
+        font-weight: bold;
+        box-shadow: 0px 10px 10px rgb(255, 115, 0);
+      }
+
+      button:hover {
+        padding: 10px 10px;
+        margin: 10px;
+        border-radius: 15px;
+        background-color: rgb(12, 137, 153);
+        font-weight: bold;
+        box-shadow: 0px 10px 10px rgb(255, 0, 0);
+      }
+
+      .active {
+        background-color: #6759ff;
+        color: #ffffff;
+      }
+
+      img {
+        justify-content: space-between;
+        padding: 20px;
+        width: 130px;
+        margin: 10px;
+        text-align: center;
+
+      }
+
+      .card {
+        display:grid;
+      }
+
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="search-container">
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Search product name here.."
+        />
+        <button id="search">Search</button>
+      </div>
+      <div id="buttons">
+        <button class="button-value" onclick="filterProduct('all')">All</button>
+        <button class="button-value" onclick="filterProduct('Topwear')">
+          Topwear
+        </button>
+        <button class="button-value" onclick="filterProduct('Bottomwear')">
+          Bottomwear
+        </button>
+        <button class="button-value" onclick="filterProduct('Jacket')">
+          Jacket
+        </button>
+        <button class="button-value" onclick="filterProduct('Watch')">
+          Watch
+        </button>
+      </div>
+      <div id="products"></div>
+    </div>
+    <!-- Script -->
+    <script>
+      let products = {
+        data: [
+          {
+            productName: "Regular white T-shirt",
+            category: "Topwear",
+            price: "30",
+            image:
+              "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D",
+          },
+          {
+            productName: "Beige Short Skirt",
+            category: "Bottomwear",
+            price: "49",
+            image:
+              "https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2xvdGhpbmd8ZW58MHx8MHx8fDA%3D",
+          },
+          {
+            productName: "Sporty SmartWatch",
+            category: "Watch",
+            price: "99",
+            image:
+              "https://plus.unsplash.com/premium_photo-1676225680209-19a398a9b38a?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D",
+          },
+          {
+            productName: "Basic Knitted Top",
+            category: "Topwear",
+            price: "29",
+            image:
+              "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGNsb3RoZXN8ZW58MHx8MHx8fDA%3D",
+          },
+          {
+            productName: "Black Leather Jacket",
+            category: "Jacket",
+            price: "129",
+            image:
+              "https://images.unsplash.com/photo-1520006403909-838d6b92c22e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fGNsb3RoZXN8ZW58MHx8MHx8fDA%3D",
+          },
+          {
+            productName: "Stylish Pink Trousers",
+            category: "Bottomwear",
+            price: "89",
+            image:
+              "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fGNsb3RoZXN8ZW58MHx8MHx8fDA%3D",
+          },
+          {
+            productName: "Brown Men's Jacket",
+            category: "Jacket",
+            price: "189",
+            image:
+              "https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGNsb3RoZXN8ZW58MHx8MHx8fDA%3D",
+          },
+          {
+            productName: "Comfy Gray Pants",
+            category: "Bottomwear",
+            price: "49",
+            image:
+              "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDR8fGNsb3RoZXN8ZW58MHx8MHx8fDA%3D",
+          },
+          {
+            productName: "Beige Short Skirt",
+            category: "Bottomwear",
+            price: "49",
+            image:
+              "https://images.unsplash.com/photo-1603798125914-7b5d27789248?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjR8fGNsb3RoZXN8ZW58MHx8MHx8fDA%3D",
+          },
+          {
+            productName: "Black Leather Jacket",
+            category: "Jacket",
+            price: "129",
+            image:
+              "https://images.unsplash.com/photo-1512099053734-e6767b535838?q=80&w=1028&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          },
+          {
+            productName: "Basic Knitted Top",
+            category: "Topwear",
+            price: "29",
+            image:
+              "https://images.unsplash.com/photo-1517948430535-1e2469d314fe?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z2xhc3Nlc3xlbnwwfHwwfHx8MA%3D%3D",
+          },
+          {
+            productName: "Sporty SmartWatch",
+            category: "Watch",
+            price: "99",
+            image:
+              "https://images.unsplash.com/photo-1534844978-b859e5a09ad6?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z2xhc3Nlc3xlbnwwfHwwfHx8MA%3D%3D",
+          },
+        ],
+      };
+      for (let i of products.data) {
+        const card = document.createElement("div");
+        card.classList.add("card", i.category, "hide");
+
+        const imageContainer = document.createElement("div");
+        imageContainer.classList.add("image-container");
+
+        const image = document.createElement("img");
+        image.setAttribute("src", i.image);
+        imageContainer.appendChild(image);
+        card.appendChild(imageContainer);
+
+        const container = document.createElement("div");
+        container.classList.add("conainer");
+
+        const header = document.createElement("h5");
+        header.classList.add("product-name");
+        header.innerText = i.productName.toUpperCase();
+        container.appendChild(header);
+
+        const price = document.createElement("h6");
+        price.innerText = "$" + i.price;
+        container.appendChild(price);
+
+        card.appendChild(container);
+        document.getElementById("products").appendChild(card);
+      }
+
+      function filterProduct(value) {
+        let buttons = document.querySelectorAll(".button-value");
+
+        let elements = document.querySelectorAll(".card");
+
+        elements.forEach((element) => {
+          if (value == "all") {
+            element.classList.remove("hide");
+          }else{
+            if(element.classList.contains(value)){
+                element.classList.remove("hide")
+            }else{
+                element.classList.add("hide")
+            }
+          }
+        });
+
+        document.getElementById("search").addEventListener("click", () => {
+            const searchInput = document.getElementById("search-input").value
+            let elements = document.querySelectorAll(".product-name")
+            let cards = document.querySelectorAll(".card")
+
+            elements.forEach((element, index) => {
+                if(element.innerText.includes(searchInput.toUpperCase())){
+                    cards[index].classList.remove("hide")
+                }
+                else{
+                    cards[index].classList.add("hide")
+                }
+            })
+        })
+      }
+
+      window.onload = () => {
+        filterProduct("all");
+      };
+    </script>
+  </body>
+</html>

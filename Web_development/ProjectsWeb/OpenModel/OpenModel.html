@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Model Box</title>
+    <style>
+      body {
+        background-image: url("1.jpg");
+        color: white;
+      }
+
+      .container {
+        text-align: center;
+        padding: 75px 75px 95px 75px;
+        background-color: white;
+        color: black;
+        width: 455px;
+        margin: 250px auto;
+        border-radius: 30px;
+      }
+      .header {
+        padding: 10px 10px;
+      }
+      .button {
+        border: 2px solid black;
+        background-color: rgb(175, 221, 175);
+        border-radius: 10px;
+        padding: 5px 5px;
+      }
+
+      .btn {
+        text-align: right;
+      }
+      .close-item {
+        /* display: block; */
+        text-align: center;
+        /* align-items: center; */
+        padding: 75px 75px 95px 75px;
+        background-color: white;
+        color: black;
+        width: 455px;
+        margin: 250px auto;
+        border-radius: 30px;
+      }
+
+      .header {
+        padding: 10px 10px;
+      }
+      .close-button {
+        border: 2px solid black;
+        background-color: rgb(175, 221, 175);
+        border-radius: 10px;
+        padding: 5px 5px;
+      }
+
+      .close-btn {
+        text-align: right;
+      }
+
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <h3 class="header">Model Project</h3>
+        <buttton class="button">Open Model</buttton>
+    </div>
+
+    <!-- Hidden Page  -->
+    <div class="close-container hide">
+      <div class="close-item">
+        <div class="close-btn">
+          <button class="close-button">Close</button>
+        </div>
+        <h3>Javascript Tutorial</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea sed id
+          totam vero assumenda error, expedita, molestiae odit iusto asperiores
+          vel reprehenderit perferendis, nisi placeat? Voluptatum tempore
+          suscipit quaerat odit.
+        </p>
+      </div>
+    </div>
+    <script>
+      const openButton = document.querySelector(".button");
+      const closeButton = document.getElementById(".close-button");
+      const model = document.querySelector(".close-container");
+
+      function openModel() {
+        model.classList.remove("hide");
+      }
+
+      function closeModel(e, clickOutSide) {
+        if (clickOutSide) {
+          if (e.target.classList.contains("close-container")) {
+            model.classList.add("hide");
+          } else {
+            model.classList.add("hide");
+          }
+        }
+      }
+
+      openButton.addEventListener('click', openModel())
+      model.addEventListener('click', (e) => closeModel(e, true))
+      closeButton.addEventListener('click', closeModel)
+      
+    </script>
+  </body>
+</html>

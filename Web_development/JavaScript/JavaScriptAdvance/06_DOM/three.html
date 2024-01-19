@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM in javascript</title>
+</head>
+<body style="background-color: #212121; color: #ffffff;">
+    
+</body>
+<script>
+    // Create an element in the javascript
+    const div = document.createElement('div');
+    console.log(div);
+    // add the classname and id the created element 
+    div.className= "main";
+    div.id = Math.round(Math.random()*10 + 1);
+    div.setAttribute("title", "Generated Title")
+    div.style.backgroundColor= "blue"
+    div.style.padding = "12px"
+    // div.innerText = "Chai and code";  
+    const addText = document.createTextNode("chai or code")
+    div.appendChild(addText);
+    document.body.appendChild(div);
+</script>
+</html>

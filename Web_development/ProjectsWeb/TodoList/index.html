@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <style>
+      body {
+        /* The image used */
+        background-image: url("https://plus.unsplash.com/premium_photo-1684331678124-ff62c82cef7a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+      }
+      .main-container {
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 2px solid;
+        border-radius: 20px;
+        text-align: center;
+        justify-content: center;
+        margin: auto;
+        width: 50%;
+        padding: 50px;
+        background-image: url("https://plus.unsplash.com/premium_photo-1661963783275-dff88a0296f6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dG8lMjBkbyUyMGxpc3R8ZW58MHx8MHx8fDA%3D");
+      }
+
+      .heading {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 20px;
+      }
+
+      .inout-wrapper #todo-input {
+        padding: 5px 20px;
+      }
+
+      #submit {
+        padding: 5px 20px;
+        cursor: pointer;
+      }
+
+      .todo-lists {
+        /* display: none; */
+        background-color: rgb(247, 163, 163);
+        color: black;
+        border: 2px solid rgb(247, 163, 163);
+        border-radius: 10px;
+        padding: 20px;
+        margin: 10px 67px;
+      }
+
+      .todo-lists span {
+        padding: 5px;
+        text-align: right;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <div class="ta-container">
+        <div class="heading">
+          <h1>To Do App</h1>
+        </div>
+        <div class="ta-wrapper">
+          <div class="inout-wrapper">
+            <input type="text" id="todo-input" value=""/>
+            <button id="submit">Add</button>
+          </div>
+          <div id="test">
+            <!-- <div class="todo-lists">
+               Todo item append here 
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const inputBox = document.getElementById("todo-input");
+    const submit = document.getElementById("submit");
+    const deleteButton = document.getElementById("delete");
+
+    // deleteButton.addEventListener("click", ()=>{
+
+    // })
+
+    submit.addEventListener("click", () => {
+      // lists.style.display = "block";
+
+      var member = document.createElement("div");
+      member.className = "todo-lists";
+
+      var memberSpan = document.createElement("span");
+      memberSpan.innerHTML = inputBox.value;
+      member.appendChild(memberSpan);
+
+      var deleteButton = document.createElement("button");
+      deleteButton.innerHTML = '<i class="fa fa-solid fa-trash"></i>';
+      member.appendChild(deleteButton);
+
+      var editButton = document.createElement("button");
+      editButton.innerHTML = '<i class="fas fa-edit"></i>';
+      member.appendChild(editButton);
+
+      // console.log(deleteButton);
+      document.getElementById("test").appendChild(member);
+
+      deleteButton.addEventListener("click", () => {
+        member.remove();
+      });
+
+      editButton.addEventListener("click", () => {
+        editButton.innerHTML = '<i class="fas fa-save"></i>'
+        
+      });
+
+      // const str =
+      //   inputBox.value +
+      //   '<span class="delete"><i class="fa fa-solid fa-trash"></i> </span>' +
+      //   '<span class="add"><i class="fa fa-solid fa-trash"></i> </span>';
+      // lists.innerHTML = str;
+    });
+  </script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM in javascript</title>
+  </head>
+  <body style="background-color: #212121; color: white">
+    <ul class="language">
+      <li>javascript</li>
+    </ul>
+  </body>
+  <script>
+    function addLangName(langName) {
+      const li = document.createElement("li");
+      li.innerHTML = `${langName}`;
+      document.querySelector(".language").appendChild(li);
+    }
+
+    addLangName("python");
+    addLangName("Java");
+    addLangName("JAvascript");
+
+    function optiLangName(params) {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(params))
+        document.querySelector(".language").appendChild(li);
+    }
+    optiLangName('Golong')
+
+
+    // Edit
+    const secondLang = document.querySelector("li:nth-child(2)")
+    const createList = document.createElement('li')
+    createList.textContent = "Mojo"
+    secondLang.replaceWith(createList)
+
+    //edit 
+    const thirdLang = document.querySelector("li:first-child");
+    thirdLang.outerHTML = '<li>TypeScript</li>'
+
+    //remove
+    const lastName = document.querySelector("li:last-child");
+    lastName.remove()
+  </script>
+</html>

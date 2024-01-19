@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      body {
+        background-color: rgb(163, 216, 199);
+      }
+
+      .hidden{
+        display: none;
+      }
+
+      .home-item {
+        color: white;
+        text-align: center;
+        /* margin: 10%; */
+        margin: 25px 0px;
+      }
+
+      .home-item .img{
+        display:inline-block;
+        width: 250px;
+        height: 250px;
+        margin: 25px 25px;
+      }
+    </style>
+  </head>
+  <body
+    class="p-3 m-0 border-0 bd-example m-0 border-0"
+    style="
+      background-image: url('https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    "
+  >
+    <!-- Example Code -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Rkyadav</a>
+        <button
+          class="navbar-toggler collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="navbar-collapse collapse"
+          id="navbarSupportedContent"
+          style="border: 2px solid white"
+        >
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" id="home" aria-current="page" href="#"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="blog" href="#">Blog</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Foods
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Breakfast</a></li>
+                <li><a class="dropdown-item" href="#">Lunch</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Dinner</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Contact Us</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="home-item hidden">
+      <h2>The Home</h2>
+      <p class="para">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus quam
+        velit magnam, aliquam possimus autem, quod optio quisquam dolore,
+        consequuntur distinctio ea eos beatae dolorum dolores.
+      </p>
+      <img
+        src="https://plus.unsplash.com/premium_photo-1663858367001-89e5c92d1e0e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D"
+        alt="The food"
+        class="img"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D"
+        alt="The food"
+        class="img"
+      />
+      <img
+        src="https://plus.unsplash.com/premium_photo-1663858367001-89e5c92d1e0e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D"
+        alt="The food"
+        class="img"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D"
+        alt="The food"
+        class="img"
+      />
+    </div>
+    
+    <!-- End Example Code -->
+  </body>
+  <script>
+    // const navItem = document.querySelector("#home");
+    // navItem.addEventListener("click", () => {
+
+    //   document.body.style.backgroundImage =
+    //     "url('https://images.unsplash.com/photo-1516617442634-75371039cb3a?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
+      
+    // });
+    // const blog = document.querySelector("#blog");
+    // blog.addEventListener("click", () => {
+    //   document.body.style.backgroundImage =
+    //     "url('https://images.unsplash.com/photo-1621146027714-e8921770f8d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D')";
+    // });
+
+    const navItem = document.querySelectorAll(".nav-item")
+    for(const item of navItem){
+      const curr_faq = item.childNodes;
+      // console.log(curr_faq);
+      const question = curr_faq[1]; 
+      console.log(question);
+      const icon = document.querySelector(".nav-link")
+      const answer = document.querySelector(".home-item")
+      // console.log(icon);
+      icon.addEventListener("click", function() {
+        const baby = answer.classList.toggle("hidden")
+        console.log(baby);
+      })
+    }
+  </script>
+</html>

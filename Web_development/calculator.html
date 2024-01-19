@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Calculator</title>
+    <style>
+      body {
+        background-color: cornflowerblue;
+      }
+      .calculator {
+        background-image: url("https://images.unsplash.com/photo-1594980596870-8aa52a78d8cd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNhbGN1bGF0b3J8ZW58MHx8MHx8fDA%3D");
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .calculator tr td {
+        margin: 5px;
+        padding: 10px;
+      }
+      .calculator tr td input {
+        padding: 20px 25px;
+        background-color: #274a90;
+        color: #ffffff;
+        font-family: "Times New Roman", Times, serif;
+        font-weight: bold;
+        text-align: right;
+        justify-content: right;
+        cursor: pointer;
+        font-size: 20px;
+        box-shadow: 0px 5px 5px rgb(243, 70, 70);
+      }
+      .calculator tr td #btn {
+        padding: 20px 25px;
+        background-color: rgb(221, 20, 54);
+        color: #ffffff;
+        font-family: "Times New Roman", Times, serif;
+        font-weight: bold;
+        text-align: right;
+        justify-content: right;
+        cursor: pointer;
+        font-size: 20px;
+        box-shadow: 0px 5px 5px rgb(25, 16, 194);
+      }
+      .calculator tr td #btn:hover {
+        padding: 20px 25px;
+        color: rgb(221, 20, 54);
+        background-color: #ffffff;
+        font-family: "Times New Roman", Times, serif;
+        font-weight: bold;
+        text-align: right;
+        justify-content: right;
+        cursor: pointer;
+        font-size: 20px;
+        box-shadow: 0px 5px 5px rgb(194, 16, 16);
+      }
+
+      .calculator tr td input:hover {
+        color: #243994;
+        background-color: #ffffff;
+        box-shadow: 0px 5px 5px red;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="calculator">
+      <tr>
+        <td colspan="3">
+          <input type="text" class="display-box" id="result" />
+        </td>
+        <td>
+          <input type="button" value="C" onclick="clearScreen()" id="btn" />
+        </td>
+      </tr>
+      <tr>
+        <td><input type="button" value="1" onclick="display('1')" /></td>
+        <td><input type="button" value="2" onclick="display('2')" /></td>
+        <td><input type="button" value="3" onclick="display('3')" /></td>
+        <td><input type="button" value="/" onclick="display('/')" /></td>
+      </tr>
+      <tr>
+        <td><input type="button" value="4" onclick="display('4')" /></td>
+        <td><input type="button" value="5" onclick="display('5')" /></td>
+        <td><input type="button" value="6" onclick="display('6')" /></td>
+        <td><input type="button" value="-" onclick="display('-')" /></td>
+      </tr>
+      <tr>
+        <td><input type="button" value="7" onclick="display('1')" /></td>
+        <td><input type="button" value="8" onclick="display('2')" /></td>
+        <td><input type="button" value="9" onclick="display('3')" /></td>
+        <td><input type="button" value="+" onclick="display('+')" /></td>
+      </tr>
+      <tr>
+        <td><input type="button" value="." onclick="display('.')" /></td>
+        <td><input type="button" value="0" onclick="display('0')" /></td>
+        <!-- calculate() function evaluates the mathematical expression -->
+        <td>
+          <input type="button" value="=" onclick="calculate()" id="btn" />
+        </td>
+        <td><input type="button" value="*" onclick="display('*')" /></td>
+      </tr>
+    </table>
+  </body>
+  <script>
+    const result = document.getElementById("result");
+
+    function display(num) {
+      result.value += num;
+    }
+
+    function calculate() {
+      var p = result.value;
+      var q = eval(p);
+      result.value = q;
+    }
+
+    function clearScreen() {
+      result.value = " ";
+    }
+  </script>
+</html>

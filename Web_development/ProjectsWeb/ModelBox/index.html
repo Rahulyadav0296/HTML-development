@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Model(popups)</title>
+    <style>
+      body {
+        background-color: aquamarine;
+        text-align: center;
+        padding: 70px 0;
+        margin: auto;
+      }
+
+      #open, #close {
+        padding: 10px;
+        border-radius: 20px;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        box-shadow: 0px 5px 5px rgb(111, 11, 11);
+        cursor: pointer;
+      }
+
+      #open:hover, #close:hover {
+        padding: 10px;
+        border-radius: 20px;
+        color: white;
+        background-color: black;
+        font-weight: bold;
+        box-shadow: 0px 5px 5px rgb(111, 11, 11);
+        cursor: pointer;
+      }
+
+      .model-container {
+        display: none;
+      }
+
+      #model-container {
+        border: 2px solid black;
+        margin: 15px;
+        padding: 0px 0px 10px 0px;
+        border-radius: 25px;
+        background-color: rgb(244, 229, 210);
+      }
+
+      #model-container h1 {
+        background-color: black;
+        color: white;
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="open">Click me Please</button>
+    <div class="model-container" id="model-container">
+      <div class="model">
+        <h1>Models Are Here</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+          repellat nesciunt nostrum provident quam explicabo qui molestias earum
+          illum doloremque, iusto culpa ullam minima eligendi libero et quisquam
+          ea modi. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Architecto quasi fugit cum quidem corrupti dolore ex enim, ad nobis
+          facilis?
+        </p>
+        <button id="close">Close Me</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    var model = document.getElementById("model-container")
+    var open = document.getElementById("open")
+
+    open.addEventListener("click", () => {
+        model.style.display = "block"
+    })
+
+    var close = document.getElementById("close")
+    close.addEventListener("click", () => {
+        model.style.display = "none"
+    })
+  </script>
+</html>

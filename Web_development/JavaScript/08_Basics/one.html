@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events in Javascript</title>
+  </head>
+  <body style="background-color: #414141; color: white">
+    <h3>Amazing Photos</h3>
+    <div>
+      <ul id="images">
+        <li>
+          <img
+            width="200px"
+            src="https://images.pexels.com/photos/14021938/pexels-photo-14021938.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
+            alt="Men"
+            id="photoshop"
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            src="https://images.pexels.com/photos/18777867/pexels-photo-18777867/free-photo-of-blonde-woman-wearing-coat-in-a-park.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
+            alt="women"
+            id="girl"
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            src="https://images.pexels.com/photos/18970199/pexels-photo-18970199/free-photo-of-panorama-of-a-mountainous-landscape-with-a-bridge-across-correntoso-river-in-argentina.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
+            alt="mountain"
+            id="Hamirpur"
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            src="https://images.pexels.com/photos/18252725/pexels-photo-18252725/free-photo-of-paper-shining-electric-lamps-hanging-over-table.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
+            alt="light"
+            id="Electronic"
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            src="https://images.pexels.com/photos/17923399/pexels-photo-17923399/free-photo-of-urban-bike-standing-on-country-road.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
+            alt="Bicycle"
+            id="cycle"
+          />
+        </li>
+        <li>
+          <a style="color: blue" id="google" target="_blank" href="https://www.google.com/"
+            >Google</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // document.getElementById("Electronic").onclick = function(){
+    //     alert("Ligtht is working properly")
+    // };
+
+    // AttachEvent () used in early Time 
+    // JQuery - onEvent Listener
+    
+    // Reading topics : type, timestamp, defaultPrevented, target , twoElement, srcElement, curtarget
+    // clientX, clientY, screenX, screenY
+    // altkey, ctlkey, shiftkey, keycode
+
+
+    // document.getElementById("cycle").addEventListener("click", function(e){
+    //     console.log("clicked inside the ul");
+    // }, false)
+    // document.getElementById("Hamirpur").addEventListener("click", function(e){
+    //     console.log("The Beautifuil Mountains");
+    //     e.stopPropagation()  
+    // }, false)
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     console.log('Google Clicked');
+        
+    // }, false)
+    
+    document.querySelector('#images').addEventListener('click', function(e){
+        // console.log(e.target);
+        // console.log(e.target.parentNode);
+        console.log(e.target.tagName);
+        
+        if(e.target.tagName === "IMG"){
+            console.log(e.target.id);
+            let removeamge = e.target.parentNode
+            removeamge.remove()
+        }
+        // removeamge.remove()
+        // removeamge.remoove()
+        // removeamge.parentNode.removeChild(removeIt)
+    }, false)
+
+  </script>
+</html>

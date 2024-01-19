@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Filter using javascript</title>
+    <style>
+      body {
+        background-color: rgb(35, 40, 87);
+        color: white;
+      }
+      .wrapper {
+        background-color: rgb(1, 1, 14);
+        text-align: center;
+        justify-content: center;
+        margin: 20px;
+        padding: 20px 0px;
+        border-radius: 20px;
+      }
+
+      .container {
+        padding: 10px 0px;
+      }
+
+      .search {
+        padding: 10px 10px;
+        margin: 10px;
+        border-radius: 30px;
+      }
+
+      button {
+        padding: 10px 10px;
+        margin: 10px;
+        border-radius: 15px;
+        background-color: lightslategrey;
+        font-weight: bold;
+        box-shadow: 0px 10px 10px rgb(255, 115, 0);
+      }
+
+      button:hover {
+        padding: 10px 10px;
+        margin: 10px;
+        border-radius: 15px;
+        background-color: rgb(12, 137, 153);
+        font-weight: bold;
+        box-shadow: 0px 10px 10px rgb(255, 0, 0);
+      }
+
+      .images{
+         display: flex;
+         justify-content: space-between;
+         padding: 20px;
+         margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Product Filter And Search</h1>
+      <div class="container">
+        <input
+          type="text"
+          class="search"
+          placeholder="Search Product here...."
+        />
+        <button class="searchBtn">Search</button>
+      </div>
+      <div class="allButton">
+        <button class="all">All</button>
+        <button class="Bottomwear">BottomWear</button>
+        <button class="Topwear">TopWear</button>
+        <button class="Jackets">Jackets</button>
+        <button class="watches">Watches</button>
+      </div>
+      <div class="results">
+        <!-- Result will  be displayed here  -->
+        <div class="output">
+          <div class="images" id="wear-1">
+            <div>
+              <img
+                style="width: 150px"
+                src="https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2xvdGhpbmd8ZW58MHx8MHx8fDA%3D"
+                alt="Jeans"
+              />
+              <p id="para">Pape Jeans</p>
+              <span>$ 59</span>
+            </div>
+            <div>
+              <img
+                style="width: 150px"
+                src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D"
+                alt="bottom-1"
+              />
+              <p id="para">Allen Sollay</p>
+              <span>$ 76</span>
+            </div>
+            <div>
+              <img
+                style="width: 150px"
+                src="https://plus.unsplash.com/premium_photo-1676225680209-19a398a9b38a?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D"
+                alt="bottom-2"
+              />
+              <p id="para">RoadStar</p>
+              <span>$ 45</span>
+            </div>
+          </div>
+          <div class="images" id="wear-2">
+            <div>
+              <img
+                style="width: 150px"
+                src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGNsb3RoZXN8ZW58MHx8MHx8fDA%3D"
+                alt="Summer cloth"
+              />
+              <p id="para">Zara</p>
+              <span>$ 96</span>
+            </div>
+            <div>
+              <img
+                style="width: 150px"
+                src="https://images.unsplash.com/photo-1520006403909-838d6b92c22e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fGNsb3RoZXN8ZW58MHx8MHx8fDA%3D"
+                alt="top-2"
+              />
+              <p id="para">United Kingdom</p>
+              <span>$ 140</span>
+            </div>
+            <div>
+              <img
+                style="width: 150px"
+                src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fGNsb3RoZXN8ZW58MHx8MHx8fDA%3D"
+                alt="Top-3"
+              />
+              <p id="para">FashionStreet</p>
+              <span>$ 130</span>
+            </div>
+          </div>
+          <div class="images" id="wear-3">
+            <div>
+              <img
+                style="width: 150px"
+                src=""
+                alt="Jacket"
+              />
+              <p id="para">Adidas Jacket</p>
+              <span>$ 120</span>
+            </div>
+            <div>
+              <img
+                style="width: 150px"
+                src=""
+                alt="Jacket"
+              />
+              <p id="para">Nike Jacket</p>
+              <span>$ 149</span>
+            </div>
+            <div>
+              <img
+                style="width: 150px"
+                src=""
+                alt="Jacket"
+              />
+              <p id="para">Peter England Jacket</p>
+              <span>$ 139</span>
+            </div>
+          </div>
+          <div class="images" id="wear-4">
+            <div>
+              <img
+                style="width: 150px"
+                src=""
+                alt="Sunglass"
+              />
+              <p id="para">LensKart Sunglass</p>
+              <span>$ 45</span>
+            </div>
+            <div>
+              <img
+                style="width: 150px"
+                src=""
+                alt="Sunglass"
+              />
+              <p id="para">Protrait Sunglass</p>
+              <span>$ 36</span>
+            </div>
+            <div>
+              <img
+                style="width: 150px"
+                src=""
+                alt="Sunglass"
+              />
+              <p id="para">BluCut Sunglass</p>
+              <span>$ 24</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    document.querySelector(".all").addEventListener("click", () => {
+        document.querySelector(".results").style.display = "block"
+    })
+
+    
+  </script>
+</html>

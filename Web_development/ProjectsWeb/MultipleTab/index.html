@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="shortcut icon"
+      href="https://images.unsplash.com/photo-1612810806695-30f7a8258391?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aWNvbnN8ZW58MHx8MHx8fDA%3D"
+      type="image/x-icon"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiple Tabs</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&family=Ubuntu:wght@700&family=Urbanist:wght@400;600&display=swap");
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body{
+        background-color: #7d86eb;
+      }
+
+      .container{
+        width: 80vmin;
+        position: absolute;
+        transform: translateX(-50%);
+        left: 50%;
+        top: 120px;
+        background-color: #fff;
+        box-shadow: 0 20px 40px rgba(255, 75, 75, 0.2);
+      }
+
+      .tabs{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      h3{
+        background-color: #e4e9fd;
+        text-align: center;
+        padding: 15px 0px;
+        cursor: pointer;
+        font-weight: 600;
+        box-shadow: 0 10px 10px #ce5497;
+        border: 1px solid #050505;
+      }
+
+      h3:hover{
+        background-color: #3842ba;
+        color: white;
+      }
+
+      .tab-content{
+        background-color: #fff;
+        padding: 50px 40px;
+      }
+
+      .tab-content h4{
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #000224;
+        font-weight: 600;
+      }
+
+      .tab-content p{
+        text-align: justify;
+        line-height: 1.9;
+        letter-spacing: 0.4px;
+        color: #202238;
+      }
+
+      .tab-content div{
+        display: none;
+      }
+
+      .tab-content .active{
+        display: block;
+      }
+
+      .tabs .active{
+        background-color: #3842ba;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="tabs">
+        <h3 class="active">History</h3>
+        <h3>Politics</h3>
+        <h3>Geography</h3>
+      </div>
+      <div class="tab-content">
+        <div class="active">
+          <h4>Adventures</h4>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor
+            tempora cum sed, provident atque facilis adipisci libero accusantium
+            exercitationem quibusdam, possimus labore sequi eum quia, enim ex
+            officia vero totam? Nulla dolores ex a, labore alias vitae soluta id
+            odit quasi inventore commodi, obcaecati sequi facere dolor incidunt
+            iusto voluptatem quibusdam. Dicta corporis molestiae tempora
+            repellendus laudantium vel magnam quisquam ad sequi tempore
+            consectetur libero, rem voluptatibus harum quo saepe obcaecati
+            numquam deleniti aliquam iure tenetur voluptate iste repellat
+            ducimus. Sunt voluptatum, ex numquam vel accusantium eveniet animi
+            at beatae ipsa maiores ut tempore velit iste consequuntur id.
+            Eligendi, earum.
+          </p>
+        </div>
+        <div>
+          <h4>Politics Life</h4>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor
+            tempora cum sed, provident atque facilis adipisci libero accusantium
+            exercitationem quibusdam, possimus labore sequi eum quia, enim ex
+            officia vero totam? Nulla dolores ex a, labore alias vitae soluta id
+            odit quasi inventore commodi, obcaecati sequi facere dolor incidunt
+            iusto voluptatem quibusdam. Dicta corporis molestiae tempora
+            repellendus laudantium vel magnam quisquam ad sequi tempore
+            consectetur libero, rem voluptatibus harum quo saepe obcaecati
+            numquam deleniti aliquam iure tenetur voluptate iste repellat
+            ducimus. Sunt voluptatum, ex numquam vel accusantium eveniet animi
+            at beatae ipsa maiores ut tempore velit iste consequuntur id.
+            Eligendi, earum.
+          </p>
+        </div>
+        <div>
+          <h4>Geography Journey</h4>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor
+            tempora cum sed, provident atque facilis adipisci libero accusantium
+            exercitationem quibusdam, possimus labore sequi eum quia, enim ex
+            officia vero totam? Nulla dolores ex a, labore alias vitae soluta id
+            odit quasi inventore commodi, obcaecati sequi facere dolor incidunt
+            iusto voluptatem quibusdam. Dicta corporis molestiae tempora
+            repellendus laudantium vel magnam quisquam ad sequi tempore
+            consectetur libero, rem voluptatibus harum quo saepe obcaecati
+            numquam deleniti aliquam iure tenetur voluptate iste repellat
+            ducimus. Sunt voluptatum, ex numquam vel accusantium eveniet animi
+            at beatae ipsa maiores ut tempore velit iste consequuntur id.
+            Eligendi, earum.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const tabs = document.querySelectorAll(".tabs h3")
+    const tabContent = document.querySelectorAll(".tab-content div")
+    tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
+            tabContent.forEach((content) => {
+                content.classList.remove("active")
+            });
+            tabs.forEach((tab) => {
+                tab.classList.remove("active")
+            })
+            tabContent[index].classList.add("active")
+            tabs[index].classList.add("active")
+        })
+    })
+</script>
+</html>

@@ -1,0 +1,55 @@
+1. Tailwind and props in React 
+npm create vite@latest 
+
+// Tailwind props
+
+Start : 
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+
+step 1: 
+
+Configure your template paths
+Add the paths to all of your template files in your tailwind.config.js file.
+
+tailwind.config.js
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+step 2
+
+Add the Tailwind directives to your CSS
+Add the @tailwind directives for each of Tailwind’s layers to your ./src/index.css file.
+
+index.css
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+step 3
+npm run dev
+
+// core components of Redux
+this introduces a couple of new component to an applications
+to facilitate this state management
+
+Actions : Actipons are used to send data from the application to the reduc store
+a typically action consists of the type property and an optional payload property
+
+Reducers : accepts the current state and action as arguments and returns the updated state according to Actions
+
+Store: This is the heart of the redux where the state is stored. 
+the state is kept in plane javascript objects and arrays

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CountDown Clock</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        display: flex;
+        margin: 100px 120px;
+        text-align: center;
+        justify-content: center;
+        border-radius: 30px;
+        background-color: rgb(147, 195, 179);
+      }
+
+      .container img {
+        width: 350px;
+        height: auto;
+        margin: 10px;
+        border-radius: 30px;
+      }
+
+      .container .head {
+        margin: 30px 0px;
+        display: block;
+        
+      }
+
+      .container .head h2 {
+        padding: 10px;
+        color: rgb(3, 17, 28);
+        
+      }
+
+      .container .head h4 {
+        padding: 10px;
+        color: rgb(2, 15, 23);
+        
+      }
+      .container .head p {
+        padding: 10px;
+        color: #000;
+        
+      }
+
+      .container .head .demo{
+        color: rgb(217, 38, 134);
+        font-weight: bold;
+        font-size: 15px;
+        background-color: blanchedalmond;
+        border-radius: 30px;
+        width: 120px;
+        line-height:  40px;
+      }
+      .container .head .demo:hover{
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        font-size: 15px;
+        width: 120px;
+        line-height: auto;
+        background-color: rgb(215, 87, 87);
+        box-shadow: 0px 10px 10px rgb(4, 65, 101);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="https://images.unsplash.com/photo-1530319067432-f2a729c03db5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aXBob25lfGVufDB8fDB8fHww"
+        alt="Iphone Gallery"
+      />
+      <div class="head">
+        <h2>Old Phone Giveway</h2>
+        <h4>
+          Giveaway Ends On Friday, <span>2</span> April <span> 2021 </span
+          ><span>11:30 am</span>
+        </h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed odio
+          assumenda nostrum nesciunt minus laudantium inventore reiciendis,
+          quibusdam, porro quam dolores, enim repellat ipsam? Pariatur dolor
+          aliquam ut nam inventore.
+        </p>
+        <button class="demo">Click me</button>
+      </div>
+    </div>
+    <script>
+      // new Date() creates a date objects with the current date and time
+      const date_future = new Date("Jan 14, 2024 15:37:25").getTime();
+      //   document.querySelector(".demo").innerHTML = CountDown;
+      var x = setInterval(function () {
+        const date_now = new Date().getTime();
+        const distance = date_future - date_now;
+
+        // Time Calculation for date hours, minut and second
+        // Days Calculations
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        
+        // calculate (and subtract) whole hours
+        var hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+
+        // calculate (and subtract) whole minutes
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+        // what's left is seconds
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.addEventListener("click", () => {
+            document.querySelector(".demo").innerHTML =
+          days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+          clearInterval(x);
+          document.querySelector(".demo").innerHTML = "Expired";
+        }
+        })
+      }, 100);
+    </script>
+  </body>
+</html>

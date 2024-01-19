@@ -1,0 +1,123 @@
+<!-- ordered list<ol></ol> -->
+<!-- Ordered list to used to create a list ogf items in a 
+specific order, typically indicated by numbers. -->
+<!-- example for 
+<ol>
+    <li>First</li>
+    <li>Second</li>
+    <li>Third</li>
+</ol> -->
+
+<!-- unordered list is used to create a list of items in non-specific order
+typically indicated by the bullets -->
+
+<!-- <ul>
+    <li>First</li>
+    <li>SEcon</li>
+    <li>Third</li>
+</ul> -->
+<!-- 
+unordered list (<ul>) styles
+    Disc(list-style-type: disc;): Default style - filled circles 
+    Circle (list-style-type: cirlce;); Hollow Circles 
+    Square(list-style-type: square); Squares
+    None(list-style-type: none); No bullets points -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html {
+            font-family: "jost", sans-serif;
+            background-color: #efefef;
+        }
+
+        h1{
+            font-weight: bold;
+        }
+        
+        li
+        {
+            text-transform: capitalize;
+        }
+    </style>
+    <title>HTML Lists</title>
+</head>
+<body>
+    <!-- ordered list 
+    <ol>
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+    </ol>
+
+    unordered list  -->
+    <!-- <ul>
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+    </ul> -->
+
+    <!-- ordered list styles:
+    Decimal(list-style-type: decimal): default style dedcimal number 
+    Uppercase (list-style-type: upper-alpha): default style dedcimal number
+    Lowercase(list-style-type: lower-alpha): default style dedcimal number
+    Lowercase Roman Numerals(list-style-type: lower-roman): default style dedcimal number
+    Uppercase Roman Numerals(list-style-type: upper-roman): default style dedcimal number -->
+
+
+    <!-- <h1>HTML List</h1>
+    <ul style="list-style-type: square;">
+        <li>apple</li>
+        <li>banana</li>
+        <li>cherry</li>
+    </ul>
+
+    <ol style="list-style-type: lower-roman;" start="5">
+        <li>apple</li>
+        <li>banana</li>
+        <li>cherry</li>
+    </ol>
+
+    <ol type="a" start="4">
+        <li>apple</li>
+        <li>banana</li>
+        <li>cherry</li>
+    </ol> -->
+
+    <!-- *Fruite
+        1. banana
+        2. apple 
+            *green
+            *red
+        *vegetable 
+        * meat -->
+        
+    <h3>Nested List elements creation in HTML</h3>
+        <ul>
+            <li>Fruite
+            <ol>
+                <li>Banana</li>
+                <Li>Apple
+                    <ul style="list-style-type: disc;">
+                        <li>Green</li>
+                        <li>Red</li>
+                    </ul>
+                </Li>
+            </li>
+            </ol>
+            <li>vegetable</li>
+            <li>Meat</li>
+        </ul>
+
+    <!-- How to create Horizontal navigation var using unordered list -->
+    <ul style="list-style: none; display: flex; gap: 20px;">
+        <li><a href="https://www.merriam-webster.com/dictionary/program" target="_blank">Home</a></li>
+        <li>Services</li>
+        <li>Programs</li>
+        <li>About us</li>
+    </ul>
+</body>
+</html>

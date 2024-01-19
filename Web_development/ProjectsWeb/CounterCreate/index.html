@@ -1,0 +1,71 @@
+<!-- How to create a Counter  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter Game</title>
+    <style>
+      body {
+        background-color: rgb(206, 225, 225);
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        margin: 250px 0;
+      }
+      button {
+        padding: 5px 5px;
+        margin: 0 12px;
+        border-radius: 8px;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      button {
+        box-shadow: 0 8px 16px 0 rgb(46, 46, 103),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      button:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+          0 17px 50px 0 rgba(0, 0, 0, 0.19);
+      }
+      h2 {
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Counter</h1>
+      <h2 id="paragraph"><b>0</b></h2>
+      <button id="button1">Decrease</button>
+      <button id="button2">Reset</button>
+      <button id="button3">Increase</button>
+    </div>
+    <script>
+      const decrease = document.getElementById("button1");
+      const Reset = document.getElementById("button2");
+      const Increase = document.getElementById("button3");
+      
+      let count = 0;
+
+      decrease.addEventListener("click", () => {
+        console.log("Number is Decrease");
+        count--;
+        document.getElementById("paragraph").innerHTML = count;
+      });
+
+      Reset.addEventListener('click', () => {
+         count = 0;
+         document.getElementById("paragraph").innerHTML = count;
+      })
+      
+      Increase.addEventListener("click", () => {
+        console.log("Number is Increase");
+        count++;
+        document.getElementById("paragraph").innerHTML = count;
+      });
+    </script>
+  </body>
+</html>

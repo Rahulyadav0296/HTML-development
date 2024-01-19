@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanilla Javscript Stopwatch</title>
+    <style>
+      body {
+        background-color: rgb(149, 230, 209);
+      }
+
+      .container {
+        text-align: center;
+        /* justify-content: center; */
+        margin: 30vh 0;
+      }
+
+      .vanilla {
+        font-size: 25px;
+      }
+      .container h1 {
+        text-decoration: underline;
+      }
+
+      .result {
+        margin: 10px 0px;
+        font-size: 30px;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+
+      .buttons {
+        margin: 20px;
+      }
+
+      button {
+        margin: 0px 30px;
+        padding: 10px 20px;
+        background-color: rgb(80, 80, 235);
+        color: aliceblue;
+        font-weight: bold;
+        border-radius: 30px;
+        font-size: 16px;
+        box-shadow: 0px 10px 10px rgb(220, 37, 37);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Stopwatch</h1>
+      <div class="vanilla">Vanilla Javscript StopWatch</div>
+      <div class="result">
+        <span class="digit" id="hr"> 00</span>
+        <span class="txt">Hr</span>
+        <span class="digit" id="min"> 00</span>
+        <span class="txt">Min</span>
+        <span class="digit" id="sec"> 00</span>
+        <span class="txt">Sec</span>
+        <span class="digit" id="count"> 00</span>
+      </div>
+      <div class="buttons">
+        <button class="start">Start</button>
+        <button class="stop">Stop</button>
+        <button class="reset">Reset</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const start = document.querySelector(".start");
+    const stop = document.querySelector(".stop");
+    const reset = document.querySelector(".reset");
+
+    // create a new date Obejcts
+    let hour = 0;
+    let minute = 0;
+    let second = 0;
+    let count = 0;
+
+    start.addEventListener("click", () => {
+      timer = true;
+      stopWatch();
+    });
+
+    stop.addEventListener("click", () => {
+      timer = false;
+    });
+
+    reset.addEventListener("click", () => {
+      timer = false;
+      hour = 0;
+      minute = 0;
+      second = 0;
+      count = 0;
+      document.getElementById("hr").innerHTML = "00";
+      document.getElementById("min").innerHTML = "00";
+      document.getElementById("sec").innerHTML = "00";
+      document.getElementById("count").innerHTML = "00";
+    });
+
+    function stopWatch() {
+      if (timer) {
+        count++;
+        if (count == 100) {
+          second++;
+          count = 0;
+        }
+
+        if (second == 60) {
+          minute++;
+          second = 0;
+        }
+
+        if (minute == 60) {
+          hour++;
+          second = 0;
+          minute = 0;
+        }
+
+        let hrString = hour;
+        let minString = minute;
+        let secString = second;
+        let countString = count;
+
+        if (hour < 10) {
+          hrString = "0" + hrString;
+        }
+
+        if (minute < 10) {
+          minString = "0" + minString;
+        }
+
+        if (second < 10) {
+          secString = "0" + secString;
+        }
+
+        if (count < 10) {
+          countString = "0" + countString;
+        }
+
+        document.getElementById("hr").innerHTML = hrString;
+        document.getElementById("min").innerHTML = minString;
+        document.getElementById("sec").innerHTML = secString;
+        document.getElementById("count").innerHTML = countString;
+        setTimeout(stopWatch, 10);
+      }
+    }
+  </script>
+</html>

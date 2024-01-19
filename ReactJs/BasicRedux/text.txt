@@ -1,0 +1,22 @@
+Redux Toolkit includes these APIs
+configureStore() : wraps createStore to provide simplified configuration options and good default.
+createReducer()
+
+1: Why sholud i use Redux.
+Ans : Redux is a pattern and library for mananging and updatig application state, using events called "actions".
+
+Radux helps you manage, "global' state - state that is needed across many parts of your application.
+
+Redux is more useful when : 
+1: we have large amounts of application state that are needed in many places in the app.
+2: the app state is updated frequently over time.
+3: the logic to update the state may be complex
+4: The app has a medium or large - sized codebase and might be worked on by many people.
+
+A reducer is a function that recieves the 
+current state and an action object  
+decides how to update the state if necessary, 
+and returns the new state: 
+(state, action) => newState
+
+Reducer as an event listener which handles events based on the received action (event) type.

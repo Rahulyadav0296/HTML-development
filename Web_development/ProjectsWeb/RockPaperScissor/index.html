@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissor</title>
+
+    <style>
+      * {
+        
+        margin: 0;
+        padding: 0;
+        background-repeat: none;
+        /* width: 100%; */
+        /* overflow: hidden; */
+      }
+
+      body{
+        background-image: url("https://images.unsplash.com/photo-1621289240407-219dc337160b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHJvY2slMjBwYXBlciUyMHNjaXNzb3JzfGVufDB8fDB8fHww");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+      .game {
+        text-align: center;
+        justify-content: center;
+        border: 2px solid black;
+        border-radius: 40px;
+        margin: 50px;
+      }
+
+      .title {
+        font-size: 30px;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-weight: bold;
+        margin: 20px 0px;
+      }
+
+      .score {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .playerScore h2 {
+        padding: 10px 20px;
+        margin: 0px 10px;
+      }
+      .computerScore h2 {
+        padding: 10px 20px;
+        margin: 0px 10px;
+      }
+
+      .move {
+        margin: 20px 0px;
+        font-size: 20px;
+        font-weight: bold;
+        color: blue;
+      }
+
+      .movesleft{
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .options button {
+        padding: 0px 30px;
+        margin: 20px 50px;
+        border-radius: 20px;
+        line-height: 40px;
+        background-color: rgb(16, 111, 106);
+        color: white;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .options button:hover {
+        padding: 0px 30px;
+        margin: 20px 50px;
+        border-radius: 20px;
+        line-height: 40px;
+        background-color: white;
+        color: rgb(16, 111, 106);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+        font-size: 15px;
+        cursor: pointer;
+      }
+
+      .reload{
+        padding: 0px 30px;
+        margin: 20px 50px;
+        border-radius: 20px;
+        line-height: 40px;
+        background-color: rgb(16, 111, 106);
+        color: white;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+        font-size: 15px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="game">
+      <!--Title -->
+      <div class="title">Rock Paper Scissor</div>
+
+      <!--Display Score of player and computer -->
+      <div class="score">
+        <div class="playerScore">
+          <h2>Player</h2>
+          <p class="p-count count">0</p>
+        </div>
+        <div class="computerScore">
+          <h2>Computer</h2>
+          <p class="c-count count">0</p>
+        </div>
+      </div>
+
+      <div class="move">Choose your move</div>
+
+      <!--Number of moves left before game ends -->
+      <div class="movesleft">Moves Left: 10</div>
+
+      <!--Options available to player to play game -->
+      <div class="options">
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissor">Scissors</button>
+      </div>
+
+      <!--Final result of game -->
+      <div class="result"></div>
+
+      <!--Reload the game -->
+      <button class="reload"></button>
+    </section>
+    <script>
+      // app.js
+
+      // Complete logic of game inside this function
+      const game = () => {
+        let playerScore = 0;
+        let computerScore = 0;
+        let moves = 0;
+
+        // Function to
+        const playGame = () => {
+          const rockBtn = document.querySelector(".rock");
+          const paperBtn = document.querySelector(".paper");
+          const scissorBtn = document.querySelector(".scissor");
+          const playerOptions = [rockBtn, paperBtn, scissorBtn];
+          const computerOptions = ["rock", "paper", "scissors"];
+
+          // Function to start playing game
+          playerOptions.forEach((option) => {
+            option.addEventListener("click", function () {
+              const movesLeft = document.querySelector(".movesleft");
+              moves++;
+              movesLeft.innerText = `Moves Left: ${10 - moves}`;
+
+              const choiceNumber = Math.floor(Math.random() * 3);
+              const computerChoice = computerOptions[choiceNumber];
+
+              // Function to check who wins
+              winner(this.innerText, computerChoice);
+
+              // Calling gameOver function after 10 moves
+              if (moves == 10) {
+                gameOver(playerOptions, movesLeft);
+              }
+            });
+          });
+        };
+
+        // Function to decide winner
+        const winner = (player, computer) => {
+          const result = document.querySelector(".result");
+          const playerScoreBoard = document.querySelector(".p-count");
+          const computerScoreBoard = document.querySelector(".c-count");
+          player = player.toLowerCase();
+          computer = computer.toLowerCase();
+          if (player === computer) {
+            result.textContent = "Tie";
+          } else if (player == "rock") {
+            if (computer == "paper") {
+              result.textContent = "Computer Won";
+              computerScore++;
+              computerScoreBoard.textContent = computerScore;
+            } else {
+              result.textContent = "Player Won";
+              playerScore++;
+              playerScoreBoard.textContent = playerScore;
+            }
+          } else if (player == "scissors") {
+            if (computer == "rock") {
+              result.textContent = "Computer Won";
+              computerScore++;
+              computerScoreBoard.textContent = computerScore;
+            } else {
+              result.textContent = "Player Won";
+              playerScore++;
+              playerScoreBoard.textContent = playerScore;
+            }
+          } else if (player == "paper") {
+            if (computer == "scissors") {
+              result.textContent = "Computer Won";
+              computerScore++;
+              computerScoreBoard.textContent = computerScore;
+            } else {
+              result.textContent = "Player Won";
+              playerScore++;
+              playerScoreBoard.textContent = playerScore;
+            }
+          }
+        };
+
+        // Function to run when game is over
+        const gameOver = (playerOptions, movesLeft) => {
+          const chooseMove = document.querySelector(".move");
+          const result = document.querySelector(".result");
+          const reloadBtn = document.querySelector(".reload");
+
+          playerOptions.forEach((option) => {
+            option.style.display = "none";
+          });
+
+          chooseMove.innerText = "Game Over!!";
+          movesLeft.style.display = "none";
+
+          if (playerScore > computerScore) {
+            result.style.fontSize = "2rem";
+            result.innerText = "You Won The Game";
+            result.style.color = "#308D46";
+          } else if (playerScore < computerScore) {
+            result.style.fontSize = "2rem";
+            result.innerText = "You Lost The Game";
+            result.style.color = "red";
+          } else {
+            result.style.fontSize = "2rem";
+            result.innerText = "Tie";
+            result.style.color = "grey";
+          }
+          reloadBtn.innerText = "Restart";
+        //   reloadBtn.style.display = "block";
+          reloadBtn.addEventListener("click", () => {
+            window.location.reload();
+          });
+        };
+
+        // Calling playGame function inside game
+        playGame();
+      };
+
+      // Calling the game function
+      game();
+    </script>
+  </body>
+</html>

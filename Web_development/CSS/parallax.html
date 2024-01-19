@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax HTML CSS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "jost";
+        }
+
+        h2{
+            font-size: 64px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 2px 2px 5px #000;
+        }
+
+        p{
+            font-size: 34px;
+            color: #ffffff;
+            text-shadow: 3px 3px 5px #000;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            background-image: url('https://images.unsplash.com/photo-1698414392358-d57cfc2f7932?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM3fE04alZiTGJUUndzfHxlbnwwfHx8fHw%3D');
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            /* which property is using in image scrolling   */
+            background-attachment: fixed;
+
+        }
+
+        .section-2 {
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            background-image: url('https://images.unsplash.com/photo-1689961995731-0dc40275336d?auto=format&fit=crop&q=80&w=1035&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            /* which property is using in image scrolling   */
+            background-attachment: fixed;
+
+        }
+        .section-3 {
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            background-image: url('https://images.unsplash.com/photo-1695120277066-42bd08ff6e80?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDExMnxNOGpWYkxiVFJ3c3x8ZW58MHx8fHx8');
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            /* which property is using in image scrolling   */
+            background-attachment: fixed;
+
+        }
+
+        .section-4 {
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            background-image: url('https://images.unsplash.com/photo-1692636585374-d55a004efe36?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM2fE04alZiTGJUUndzfHxlbnwwfHx8fHw%3D');
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            /* which property is using in image scrolling   */
+            background-attachment: fixed;
+
+        }
+        /*  */
+    </style>
+</head>
+
+<body>
+    <section>
+        <div>
+            <h2>Parallax One</h2>
+            <p>The Best HTML Learning Plateform</p>
+        </div>
+    </section>
+    <section class="section-2">
+        <div>
+            <h2>Parallax Two</h2>
+            <p>The Best HTML Learning Plateform</p>
+        </div>
+    </section>
+    <section class="section-3">
+        <div>
+            <h2>Parallax Three</h2>
+            <p>The Best HTML Learning Plateform</p>
+        </div>
+    </section>
+    <section class="section-4">
+        <div>
+            <h2>Subscibe To me</h2>
+            <p>Better Place for Web Developer</p>
+        </div>
+    </section>
+</body>
+
+</html>

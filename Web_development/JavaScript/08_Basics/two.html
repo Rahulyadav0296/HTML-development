@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aysnce Code</title>
+</head>
+<body>
+    <h1>Beginning of new things</h1>
+    <button id="stop">Stop</button>
+
+</body>
+<script>
+    // setTimeout(function () {
+    //     console.log("JAvascript");
+    // }, 2000)
+
+    // but decalare a function and try to above val
+    // const fun = function(){
+    //     console.log("Javavscript");   
+    // }
+    // setTimeout(fun, 5000)  // after 5 seconds our code will print the value
+
+    const changeText = function () {
+        document.querySelector('h1').innerHTML = "This is the best JS tutorial"
+    }
+    const changeME = setTimeout(changeText, 2000)
+    
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearInterval(changeME);
+        console.log("Stopped");
+    })
+
+    
+</script>
+</html>

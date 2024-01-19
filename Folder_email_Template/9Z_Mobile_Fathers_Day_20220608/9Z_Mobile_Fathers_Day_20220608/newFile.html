@@ -1,0 +1,12 @@
+<% if (targetData.segmentCode == "V1_Default_Gift_Giver") { %> <% } else if
+(targetData.segmentCode == "V2_Test_Gift_Recipient") { %> <% } else if
+(targetData.segmentCode == "V3_EPP") { %> <% } %> <%@ include view='PVIEW230' %>
+<% var firstModuleAlt = ""; var preheader = ""; if (targetData.segmentCode ==
+"V1_Default_Gift_Giver") { firstModuleAlt = "GREAT IDEAS FOR DAD - Galaxy gifts
+that'll make his day"; preheader = "Find great deals on Father's Day
+favorites."; } else if (targetData.segmentCode == "V2_Test_Gift_Recipient") {
+firstModuleAlt = "TREAT YOURSELF - Shop Father's Day savings"; preheader =
+"Treat yourself to smartphones, watches and more."; } else if
+(targetData.segmentCode == "V3_EPP") { firstModuleAlt = "GREAT IDEAS FOR DAD -
+Galaxy gifts that'll make his day"; preheader = "Stack savings with our Employee
+Purchase Program."; } %>

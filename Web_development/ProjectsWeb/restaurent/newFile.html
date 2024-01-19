@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="shortcut icon"
+      href="https://images.unsplash.com/photo-1612810806695-30f7a8258391?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aWNvbnN8ZW58MHx8MHx8fDA%3D"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurent</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+        color: black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      .headerbar {
+        display: none;
+      }
+
+      .searchicon2 {
+        display: block;
+      }
+
+      .logo img {
+        width: 80px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 90px;
+        padding: 0 5vw;
+        background-color: rgb(248, 232, 217);
+        border-bottom: 2px solid rgb(252, 196, 124);
+        box-shadow: 0 2px 20px rgb(253, 124, 124);
+      }
+
+      .bar {
+        display: none;
+      }
+
+      .header ul {
+        display: flex;
+        align-items: center;
+      }
+
+      .header ul li:hover {
+        color: rgb(253, 57, 8);
+      }
+
+      .nav ul li {
+        padding: 0 15px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .account {
+        flex: 0.1;
+      }
+
+      .account ul {
+        display: flex;
+        justify-content: end;
+      }
+      .account ul li {
+        padding: 0 15px;
+        font-size: 18px;
+      }
+
+      .bar i:hover {
+        color: rgb(253, 57, 8);
+      }
+
+      .search {
+        display: none;
+        width: 200px;
+        justify-content: center;
+      }
+
+      .search input {
+        width: 100%;
+        outline: none;
+        border: none;
+        padding: 10px;
+      }
+
+      .srchicon {
+        background-color: rgb(255, 210, 210);
+        display: block;
+        padding: 4px 5px;
+        cursor: pointer;
+      }
+
+      .home {
+        background-color: rgb(248, 232, 217);
+        padding: 0 7vw;
+      }
+
+      .main-slide {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap-reverse;
+      }
+
+      .main-slide div:nth-child(2) {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        padding-top: 40px;
+      }
+
+      .main-slide div:nth-child(1) {
+        padding-top: 20px;
+        flex: 1;
+        font-size: 30px;
+      }
+
+      .main-slide div:nth-child(1) p {
+        font-size: 13px;
+        padding: 20pxx 0px;
+      }
+
+      .main-slide div:nth-child(1) span {
+        color: rgb(253, 57, 8);
+        text-decoration: underline;
+        text-underline-offset: 10px;
+        text-decoration-color: rgb(253, 176, 34);
+      }
+
+      .main-slide div:nth-child(2) img {
+        width: 80vw;
+      }
+
+      .red_btn {
+        cursor: pointer;
+        margin-top: 20px;
+        width: 160px;
+        font-weight: bold;
+        color: aliceblue;
+        line-height: 50px;
+        background-color: rgb(253, 77, 8);
+        border-radius: 5px;
+        border: 1px solid rgb(253, 77, 8);
+        box-shadow: 0 10px 15px rgb(250, 120, 69);
+        transition: all 0.2s;
+      }
+
+      .red_btn i {
+        color: white;
+        transition: all 0.2s;
+      }
+
+      .red_btn:hover {
+        background-color: white;
+        box-shadow: 0 2px 15px rgb(250, 120, 69);
+        border: 1px solid rgb(253, 77, 8);
+        color: rgb(253, 77, 8);
+      }
+
+      .red_btn:hover i {
+        color: rgb(253, 77, 8);
+      }
+
+      .food-items {
+        margin: 70px 0;
+        padding: 20px 0;
+        background-color: white;
+        border-radius: 30px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+
+      .item {
+        width: 250px;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .item div {
+        height: 160px;
+      }
+
+      .item img {
+        width: 160px;
+        margin-bottom: 15px;
+      }
+
+      .item p {
+        font-size: 12px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+      }
+
+      .white_btn {
+        cursor: pointer;
+        margin-top: 20px;
+        width: 160px;
+        font-weight: bold;
+        color: rgb(253, 77, 8);
+        line-height: 50px;
+        border: 1px solid rgb(253, 77, 8);
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 15px rgb(250, 120, 69);
+        transition: all 0.2s;
+      }
+
+      .white_btn:hover {
+        color: white;
+        background-color: rgb(253, 77, 8);
+        box-shadow: 0 2px 15px rgb(250, 120, 69);
+      }
+
+      .item .red_btn .white_btn {
+        width: 120px;
+        line-height: 35px;
+      }
+
+      .main-slide2 {
+        margin: 80px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .fooding {
+        flex: 0.5;
+      }
+
+      .fooding img {
+        max-width: 360px;
+        width: 45vw;
+      }
+
+      .question {
+        flex: 0.5;
+        flex-direction: column;
+        margin-left: 40px;
+      }
+
+      .question h2 {
+        font-size: 35px;
+        margin-bottom: 15px;
+      }
+
+      .q-ans {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-right: 20px;
+        padding: 15px 0;
+        cursor: pointer;
+      }
+
+      .q-ans img {
+        width: 40px;
+      }
+
+      .q-ans div:first-child {
+        padding: 10px;
+        border-radius: 50%;
+        height: 65px;
+        text-align: center;
+        background-color: white;
+        margin-right: 20px;
+      }
+
+      .q-ans div:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+      }
+      .q-ans div:nth-child(2) {
+        margin-top: 10px;
+        font-size: 13px;
+      }
+
+      .main-slide3 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+      }
+
+      .main-slide3 .fav-head {
+        text-align: center;
+        width: 450px;
+        margin-bottom: 30px;
+      }
+      .main-slide3 .fav-head h3 {
+        font-size: 30px;
+        padding: 20px 0;
+      }
+      .main-slide3 .fav-head p {
+        font-size: 13px;
+        text-align: center;
+      }
+      .main-slide3 .fav-food {
+        margin: 30px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 90%;
+      }
+
+      .main-slide3 .fav-food .item {
+        background-color: white;
+        border-radius: 5px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 10px rgba(119, 119, 119, 0.438);
+        width: 220px;
+        padding: 15px;
+        padding-top: 20px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .main-slide3 .fav-food .item div {
+        height: 160px;
+        margin-bottom: 15px;
+      }
+
+      .main-slide3 .fav-food .item img {
+        height: 160px;
+        margin-bottom: 15px;
+      }
+      .main-slide3 .fav-price {
+        color: red;
+        font-weight: bold;
+        font-size: 15px;
+      }
+      .main-slide3 .dsgn {
+        background-color: rgb(255, 214, 176);
+        height: 50%;
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+        bottom: 0;
+        border-radius: 10px;
+      }
+
+      .main-slide4 {
+        margin-top: 270px;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        margin-bottom: 200px;
+      }
+      .main-slide4 .chef-feed {
+        flex: 0.5;
+        margin-top: 30px;
+      }
+      .main-slide4 .chef {
+        flex: 0.5;
+        text-align: right;
+      }
+      .main-slide4 .chef img {
+        margin-top: -130px;
+        width: 50vw;
+        max-width: 490px;
+      }
+
+      .main-slide4 .chef-feed h2 {
+        font-size: 32px;
+        margin-bottom: 25px;
+      }
+
+      .main-slide4 .chef-feed p {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 10px;
+      }
+      .main-slide4 .chef-detail {
+        display: flex;
+        margin: 25px 0;
+        align-items: center;
+        margin-top: 20px;
+      }
+      .main-slide4 .chef-detail img {
+        width: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+        border: 4px solid black;
+      }
+      .main-slide4 .chef-detail h6 {
+        font-size: 14px;
+      }
+      .main-slide4 .chef-detail p {
+        font-size: 11px;
+        color: red;
+      }
+
+      .main-slide4 .chef-vic {
+        display: flex;
+        align-items: center;
+        padding: 25px 20px;
+        background-color: rgb(255, 219, 185);
+        border-radius: 0 100px 0 0;
+        margin-top: 40px;
+        width: 100%;
+      }
+
+      .main-slide4 .chef-vic div {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        flex: 0.5;
+        height: 27px;
+        overflow: hidden;
+      }
+      .main-slide4 .chef-vic div i,
+      .main-slide4 .chef-vic div h4 {
+        font-size: 27px;
+        margin-right: 8px;
+      }
+
+      .main-slide4 .chef-vic div h4{
+        color: red;
+      }
+      .main-slide4 .chef-vic div p{
+        font-size: 11px;
+        padding-top: 8px;
+        line-height: 13px;
+      }
+
+      .letter{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 100px 0;
+      }
+
+      .letter-head{
+        flex: 0.5;
+      }
+
+      .letter-head h2{
+        font-size: 30px;
+      }
+
+      .letter-head span{
+        color: red;
+      }
+
+      .letter-input{
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        flex:0.5;
+      }
+
+      .letter-input div{
+        width: 70%;
+        display: flex;
+        align-items: center;
+        background-color: rgb(255, 219, 185);
+      }
+
+      .letter-input input{
+        font-size: 15px;
+        padding: 10px;
+        outline: none;
+        width: 100%;
+        border: none;
+        background-color: rgb(255, 219, 185);;
+      }
+
+      .letter-input .red_btn{
+        margin: 0;
+        font-size: 18px;
+        box-shadow: none;
+        border-radius: 0 10px 10px 0;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .header .nav,
+        .header .account {
+          display: none;
+        }
+        .search {
+          width: 60vw;
+        }
+
+        .bar {
+          display: block;
+          cursor: pointer;
+        }
+
+        .headerbar {
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          position: fixed;
+          top: 0;
+          width: 100%;
+          right: -100%;
+          bottom: 0;
+          background-color: rgb(252, 231, 216);
+          transition: all 0.5s;
+        }
+
+        .headerbar .account {
+          display: block;
+          font-size: 18px;
+        }
+
+        .headerbar .nav {
+          display: block;
+          font-size: 18px;
+        }
+
+        .bar .fa-xmark {
+          display: none;
+          top: 20px;
+          right: 5w;
+          position: absolute;
+          font-size: 25px;
+        }
+
+        .header .nav ul {
+          flex-direction: column;
+          margin-top: 10px;
+          text-align: center;
+        }
+        .header .nav li {
+          width: 96vw;
+          margin: 10px 0;
+          padding: 15px 30px;
+          box-shadow: 0 2px 15px rgb(252, 193, 169);
+          font-size: 15px;
+          margin-top: 5px;
+        }
+        .headerbar .account {
+          line-height: 40px;
+          margin-top: 60px;
+          background-color: rgb(252, 210, 182);
+          padding: 25px;
+        }
+        .headerbar .account ul {
+          justify-content: space-between;
+        }
+
+        .fooding {
+          flex: 1;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+        .fooding img {
+          width: 70vw;
+        }
+
+        .question {
+          flex: 1;
+          margin-top: 30px;
+        }
+
+        .question h2 {
+          font-size: 25px;
+        }
+
+        .q-ans div:nth-child(2) p {
+          font-size: 11px;
+        }
+
+        .main-slide3 .dsgn {
+          height: 60%;
+        }
+        .main-slide3 .fav-head {
+          width: 80%;
+          margin-bottom: 20px;
+        }
+
+        .main-slide4{
+          margin-top: 150px;
+        }
+        .main-slide4 .chef-feed{
+          flex: 1;
+        }
+
+        .main-slide4 .chef{
+          flex: 1;
+          text-align: center;
+          margin-bottom: 40px;
+        }
+
+        .main-slide4 .chef img{
+          width: 80vw;
+        }
+
+        .letter-head h2{
+          font-size: 20px;
+        }
+
+        .letter-input input{
+          font-size: 12px;
+          padding: 15px;
+          width: 50vw;
+        }
+        .letter-input .red_btn{
+          line-height: 40px;
+          width: 120px;
+          font-size: 12px;
+        }
+      }
+
+      @media only screen and (max-width: 550px) {
+        .main-slide div:nth-child(1) {
+          font-size: 18px;
+        }
+
+        .main-slide div:nth-child(1) {
+          padding-top: 5px;
+          margin: 10px 0;
+          font-size: 11px;
+        }
+        .main-slide div:nth-child(1) span {
+          text-underline-offset: 5px;
+        }
+        .main-slide div:nth-child(2) img {
+          width: 70vw;
+        }
+
+        .red_btn {
+          margin-top: 10px;
+          width: 120px;
+          line-height: 30px;
+          font-size: 12px;
+          padding: 0 10px;
+        }
+        .white_btn {
+          margin-top: 10px;
+          width: 120px;
+          line-height: 30px;
+          font-size: 12px;
+          padding: 0 10px;
+        }
+
+        .main-slide3 .fav-head {
+          width: 100%;
+        }
+
+        .main-slide3 .fav-head h1 {
+          font-size: 25px;
+        }
+        .main-slide3 .fav-head p {
+          font-size: 11px;
+        }
+        .main-slide3 .dsgn {
+          display: none;
+        }
+
+        .main-slide4 .chef-vic div p{
+          display: none;
+          font-size: 0;
+          color: blue;
+        }
+
+        .letter{
+          justify-content: center;
+        }
+
+        .letter-head{
+          flex: 1;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div class="headerbar">
+          <div class="account">
+            <ul>
+              <a href="#">
+                <li><i class="fa-solid fa-house-chimney"></i></li>
+              </a>
+              <a href="#">
+                <li>
+                  <i
+                    class="fa-solid fa-magnifying-glass searchicon1"
+                    id="searchicon1"
+                  ></i>
+                </li>
+              </a>
+              <div class="search" id="searchinput1">
+                <input type="search" />
+                <i class="fa-solid fa-magnifying-glass srchicon"></i>
+              </div>
+              <a href="#">
+                <li>
+                  <i class="fa-solid fa-user" id="user-mb"></i>
+                </li>
+              </a>
+            </ul>
+          </div>
+          <div class="nav">
+            <ul>
+              <a href="#">
+                <li>Home</li>
+              </a>
+              <a href="#">
+                <li>About</li>
+              </a>
+              <a href="#">
+                <li>Food Name</li>
+              </a>
+              <a href="#">
+                <li>Book Table</li>
+              </a>
+            </ul>
+          </div>
+        </div>
+        <div class="logo">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Tesla_logo.png/900px-Tesla_logo.png"
+            alt="Logo"
+          />
+        </div>
+        <div class="bar">
+          <i class="fa-solid fa-bars"></i>
+          <i class="fa-solid fa-xmark" id="hdcross"></i>
+        </div>
+        <div class="nav">
+          <ul>
+            <a href="#"><li>Home</li></a>
+            <a href="#"><li>About</li></a>
+            <a href="#"><li>Food Menu</li></a>
+            <a href="#"><li>Book Table</li></a>
+          </ul>
+        </div>
+        <div class="account">
+          <ul>
+            <a href="#">
+              <li>
+                <i class="fa-solid fa-house-chimney"></i>
+              </li>
+            </a>
+            <a href="#">
+              <li>
+                <i
+                  class="fa-solid fa-magnifying-glass searchicon2"
+                  id="searchicon2"
+                ></i>
+              </li>
+            </a>
+            <div class="search" id="searchinput2">
+              <input type="search" /><i
+                class="fa-solid fa-magnifying-glass srchicon"
+              ></i>
+            </div>
+            <a href="#">
+              <li>
+                <i class="fa-solid fa-user" id="user-lap"></i>
+              </li>
+            </a>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <div class="home">
+      <div class="main-slide">
+        <div>
+          <h2>
+            Enjoy <span style="color: red">Delicious Food</span> in Your Healthy
+            Life.
+          </h2>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident
+            et dicta, recusandae maiores, minima veritatis iste autem
+            repudiandae debitis aperiam aliquam similique repellendus.
+            Obcaecati.
+          </p>
+          <button class="red_btn">
+            Visit Now <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1540432797114-187727adf19b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Zm9vZCUyMHBsYXRlfGVufDB8fDB8fHww"
+            alt="Food Plate"
+          />
+        </div>
+      </div>
+
+      <div class="food-items">
+        <div class="item">
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1594998893017-36147cbcae05?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGZvb2QlMjBib3dsfGVufDB8fDB8fHww"
+              alt="Food Bowl"
+            />
+          </div>
+          <h3>Veg pasta</h3>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore,
+            nobis.
+          </p>
+          <button class="white_btn">See More</button>
+        </div>
+        <div class="item">
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1520066391310-428f06ebd602?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGZvb2QlMjBib3dsfGVufDB8fDB8fHww"
+              alt="Food Bowl two"
+            />
+          </div>
+          <h3>Pizza Veg</h3>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore,
+            nobis.
+          </p>
+          <button class="red_btn">See More</button>
+        </div>
+        <div class="item">
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1556041081-888e5afc8c69?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGZvb2QlMjBib3dsfGVufDB8fDB8fHww"
+              alt="Food Bowl three"
+            />
+          </div>
+          <h3>Chicken Curry</h3>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore,
+            nobis.
+          </p>
+          <button class="white_btn">See More</button>
+        </div>
+      </div>
+
+      <div class="main-slide2">
+        <div class="fooding">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1694860349305-3c1092062854?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTUzfHxmb29kJTIwYm93bHxlbnwwfHwwfHx8MA%3D%3D"
+            alt="FastFood Bowl"
+          />
+        </div>
+        <div class="question">
+          <div>
+            <h2>Why People Choose Us?</h2>
+          </div>
+          <div>
+            <div class="q-ans">
+              <div>
+                <img
+                  src="https://images.unsplash.com/photo-1511909525232-61113c912358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTY2fHxmb29kJTIwYm93bHxlbnwwfHwwfHx8MA%3D%3D"
+                  alt="FastFoo Bowl Two"
+                />
+              </div>
+              <div>
+                <h4>Choose Your Favourite</h4>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Similique, labore?
+                </p>
+              </div>
+            </div>
+            <div class="q-ans">
+              <div>
+                <img
+                  src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZvb2QlMjBib3dsfGVufDB8fDB8fHww"
+                  alt="FastFoo Bowl Three"
+                />
+              </div>
+              <div>
+                <h4>Choose Your Favourite</h4>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Similique, labore?
+                </p>
+              </div>
+            </div>
+            <div class="q-ans">
+              <div>
+                <img
+                  src="https://images.unsplash.com/photo-1602881917760-7379db593981?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZCUyMGJvd2x8ZW58MHx8MHx8fDA%3D"
+                  alt="FastFoo Bowl Fourth"
+                />
+              </div>
+              <div>
+                <h4>Choose Your Favourite</h4>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Similique, labore?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-slide3">
+        <div class="fav-head">
+          <h2>Our Polular Food Items</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere,
+            quidem? Aliquid necessitatibus, excepturi itaque consequuntur fugit
+            distinctio earum, quaerat reprehenderit praesentium tempora quas,
+            modi a quia quae odit maxime voluptate.
+          </p>
+        </div>
+        <div class="fav-food">
+          <div class="item">
+            <div>
+              <img
+                src="https://plus.unsplash.com/premium_photo-1667682209935-b6c87cced668?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZmFzdCUyMGZvb2R8ZW58MHx8MHx8fDA%3D"
+                alt="Burger"
+              />
+            </div>
+            <h3>Burger</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi,
+              quia?
+            </p>
+            <p class="fav-price">$2.90</p>
+          </div>
+          <div class="item">
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1426869981800-95ebf51ce900?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc3QlMjBmb29kfGVufDB8fDB8fHww"
+                alt="French Fries"
+              />
+            </div>
+            <h3>French Fries</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi,
+              quia?
+            </p>
+            <p class="fav-price">$3.84</p>
+          </div>
+          <div class="item">
+            <div>
+              <img
+                src="https://plus.unsplash.com/premium_photo-1683657860029-05a5415fa618?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fGZhc3QlMjBmb29kfGVufDB8fDB8fHww"
+                alt="Burger"
+              />
+            </div>
+            <h3>KFC Chicken</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi,
+              quia?
+            </p>
+            <p class="fav-price">$1.56</p>
+          </div>
+          <div class="item">
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1625940951329-4e8d09f87692?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fGZhc3QlMjBmb29kfGVufDB8fDB8fHww"
+                alt="Burger"
+              />
+            </div>
+            <h3>Domino's</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi,
+              quia?
+            </p>
+            <p class="fav-price">$4.90</p>
+          </div>
+        </div>
+        <div class="dsgn"></div>
+      </div>
+
+      <div class="main-slide4">
+        <div class="chef-feed">
+          <h2>Costomer <span style="color: red">Feedback</span></h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas
+            assumenda modi magni harum laboriosam eum numquam a vero, quos
+            minus, eius nisi, atque recusandae! Odit, nobis? Odio vitae iusto
+            incidunt voluptatem, magnam natus, nobis consectetur laudantium
+            accusantium iure corporis hic veritatis asperiores sint libero
+            inventore ipsa dolorum, soluta voluptatum. Mollitia. Lorem ipsum
+            dolor sit, amet consectetur adipisicing elit. Vel quia sunt sequi
+            quisquam non quae reiciendis amet sint, eligendi neque earum
+            aspernatur esse. Atque error consequatur architecto iste aut quasi
+            fugit. Odit expedita tenetur eos repellendus ad sunt adipisci, minus
+            voluptatum in quos, eaque unde labore quod eveniet maiores. Tenetur.
+          </p>
+          <div class="chef-detail">
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1612810806695-30f7a8258391?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aWNvbnN8ZW58MHx8MHx8fDA%3D"
+                alt="Chef - master"
+              />
+            </div>
+            <div>
+              <h6>Developer World</h6>
+              <p>Web Developer</p>
+            </div>
+          </div>
+          <div class="chef-vic">
+            <div>
+              <i class="fa-solid fa-hand-peace"></i>
+              <h4>68</h4>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div>
+              <i class="fa-solid fa-trophy"></i>
+              <h4>956</h4>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+            </div>
+          </div>
+        </div>
+        <div class="chef">
+          <img
+            src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNoZWZ8ZW58MHx8MHx8fDA%3D"
+            alt="Chef Photo"
+          />
+        </div>
+      </div>
+
+      <div class="letter">
+        <div class="letter-head">
+          <h2>Subscribe <span>Newsletter</span></h2>
+        </div>
+        <div class="letter-input">
+          <div>
+            <input type="email" placeholder="Example.com">
+          </div>
+          <button class="red_btn">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const searchicon1 = document.querySelector("#searchicon1");
+    const srchicon1 = document.querySelector("#srchicon1");
+    const search1 = document.querySelector("#searchinput1");
+
+    searchicon1.addEventListener("click", () => {
+      console.log("working");
+      search1.style.display = "flex";
+      searchicon1.style.display = "none";
+    });
+
+    // for laptop version
+    const searchicon2 = document.querySelector("#searchicon2");
+    const srchicon2 = document.querySelector("#srchicon2");
+    const search2 = document.querySelector("#searchinput2");
+
+    searchicon2.addEventListener("click", () => {
+      search2.style.display = "flex";
+      searchicon2.style.display = "none";
+    });
+
+    const bar = document.querySelector(".fa-bars");
+    const cross = document.querySelector("#hdcross");
+    const headerbar = document.querySelector(".headerbar");
+
+    bar.addEventListener("click", () => {
+      setTimeout(() => {
+        cross.style.display = "block";
+      }, 100);
+      headerbar.style.right = "0%";
+    });
+
+    cross.addEventListener("click", () => {
+      cross.style.display = "none";
+      headerbar.style.right = "-100%";
+    });
+  </script>
+</html>

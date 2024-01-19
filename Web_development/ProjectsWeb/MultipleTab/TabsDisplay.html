@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs that display different content</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: rgb(140, 201, 203);
+        min-height: 100vh;
+      }
+
+      .container {
+        position: relative;
+        justify-content: space-around;
+      }
+
+      .container h1 {
+        text-align: center;
+        padding: 50px 0px 20px 0px;
+      }
+
+      .container p {
+        text-align: center;
+        justify-content: space-between;
+        padding: 40px 0px;
+      }
+
+      .container .item {
+        display: flex;
+        margin: 0px 40px;
+        text-align: center;
+        justify-content: space-around;
+        flex-direction: wrap;
+      }
+
+      .container .item .wrapper {
+        background-color: white;
+        margin: 0px 10px;
+        padding: 10px 10px;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+      }
+      
+
+      .container .item .wrapper img {
+        border-radius: 20px;
+      }
+      .container .item  .wrapper button {
+        line-height: 40px;
+        width: 100px;
+        background-color: red;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        border: 1px solid white;
+        box-shadow: 0 5px 10px rgb(255, 182, 18);
+        text-align: center;
+        margin: 0px 100px;
+      }
+
+      .container .item button:hover {
+        color: red;
+        background-color: white;
+      }
+
+      .container .item  .wrapper #para {
+        display: none;
+        justify-content: inherit;
+        text-align: center;
+        width: 250px;
+      }
+
+      .hide{
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>About</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
+        accusantium!
+      </p>
+      <div class="item">
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1560851691-ebb64b584d3d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGp1bmdsZXxlbnwwfHwwfHx8MA%3D%3D"
+            alt="Forest"
+          />
+        </div>
+        <div class="wrapper">
+            <button class="red_btn1">History</button>
+            <p id="para" class="para1">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius
+              maiores ex sequi placeat voluptate quidem magnam laboriosam
+              incidunt, eum expedita sed. Officia similique saepe repudiandae
+              unde voluptates sequi consectetur dolor laudantium eligendi sunt
+              tempora animi cupiditate exercitationem, aliquam voluptatum!
+              Voluptate eveniet dolorum, veritatis molestias aperiam ea maxime
+              doloremque aut earum!
+            </p>         
+        </div>
+        <div class="wrapper">
+            <button class="red_btn2">Politics</button>
+            <p id="para" class="para2">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius
+              maiores ex sequi placeat voluptate quidem magnam laboriosam
+              incidunt, eum expedita sed. Officia similique saepe repudiandae
+              unde voluptates sequi consectetur dolor laudantium eligendi sunt
+              tempora animi cupiditate exercitationem, aliquam voluptatum!
+              Voluptate eveniet dolorum, veritatis molestias aperiam ea maxime
+              doloremque aut earum!
+            </p>         
+        </div>
+        <div class="wrapper">
+            <button class="red_btn3">Geography</button>
+            <p id="para" class="para3">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius
+              maiores ex sequi placeat voluptate quidem magnam laboriosam
+              incidunt, eum expedita sed. Officia similique saepe repudiandae
+              unde voluptates sequi consectetur dolor laudantium eligendi sunt
+              tempora animi cupiditate exercitationem, aliquam voluptatum!
+              Voluptate eveniet dolorum, veritatis molestias aperiam ea maxime
+              doloremque aut earum!
+            </p>         
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const history = document.querySelector(".red_btn1");
+    const paragraph = document.querySelector(".para1")
+    history.addEventListener("click", () => {
+        paragraph.style.display = "flex"
+        paragraphTwo.style.display = "none"
+        paragraphThree.style.display = "none"
+        console.log("Working");
+    });
+    const Politics = document.querySelector(".red_btn2");
+    const paragraphTwo = document.querySelector(".para2")
+    Politics.addEventListener("click", () => {
+        paragraphTwo.style.display = "flex"
+        paragraph.style.display = "none"
+        paragraphThree.style.display = "none"
+        console.log("Working");
+    });
+    const Geography = document.querySelector(".red_btn3");
+    const paragraphThree = document.querySelector(".para3")
+    Geography.addEventListener("click", () => {
+        paragraphThree.style.display = "flex"
+        paragraph.style.display = "none"
+        paragraphTwo.style.display = "none"
+        console.log("Working");
+    });
+  </script>
+</html>

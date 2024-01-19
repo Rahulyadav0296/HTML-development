@@ -1,0 +1,43 @@
+Built-in react hooks
+State Hooks: 
+state lets a component "remember" information like user input
+for example, a form component can use state to store a input value, 
+while an image gallery component can use state to store the the selected image index 
+
+funtion ImageGallery() {
+    const [index, setIndex] = useState(0)
+}
+
+context hooks : 
+context lets a component recieve information frmo distant parents 
+withput passing it as props
+example for our app's top-level component can pass the current UI theme to all components below, no matter how deep
+useContet reads and subscribes to a context
+function Button() {
+    const theme = useContext(themeContext)
+}
+
+Ref Hooks 
+Ref let a component hold some information that isn't used for rendering
+They are useful when you need to work non-react sysetems, sucb as the built in browser APIs
+
+useRef declares a ref. You can hold any value in it, but most often its used to hold a DOM node
+function Form(){
+    const inputRef = useRef(null)
+}
+
+Effect Hooks: 
+Effects let a component connect to and synchoronize with external systems 
+This include dealing with network, browser Dom, animations, widgets written using a different
+UI library, and other non-react code
+
+use lets you read the value of a resource like a promise or context
+
+function MessageComponent( {messagPromise} ) {
+    const message = use(messagPromise)
+    const theme = use(themeContext)
+}
+
+e.target.value is the value property of some DOM element, in this case that means the text entered in the search input 
+
+The preventDefault() method cancels the event if it is cancelable meaning that the default action that belongs to the event will not occure 

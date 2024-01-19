@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget App</title>
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="sub-container">
+          <!-- Budget -->
+          <div class="total-amount-container">
+            <h3>Budget</h3>
+            <p class="hide error" id="budget-error">
+              Value cannot be empty or negative
+            </p>
+            <input
+              type="number"
+              id="total-amount"
+              placeholder="Enter Total Amount"
+            />
+            <button class="submit" id="total-amount-button">Set Budget</button>
+          </div>
+
+          <!-- Expenditure -->
+          <div class="user-amount-container">
+            <h3>Expenses</h3>
+            <p class="hide error" id="product-title-error">
+              Values cannot be empty
+            </p>
+            <input
+              type="text"
+              class="product-title"
+              id="product-title"
+              placeholder="Enter Title of Product"
+            />
+            <input
+              type="number"
+              id="user-amount"
+              placeholder="Enter Cost of Product"
+            />
+            <button class="submit" id="check-amount">Check Amount</button>
+          </div>
+        </div>
+        <!-- Output -->
+        <div class="output-container flex-space">
+          <div>
+            <p>Total Budget</p>
+            <span id="amount">0</span>
+          </div>
+          <div>
+            <p>Expenses</p>
+            <span id="expenditure-value">0</span>
+          </div>
+          <div>
+            <p>Balance</p>
+            <span id="balance-amount">0</span>
+          </div>
+        </div>
+      </div>
+      <!-- List -->
+      <div class="list">
+        <h3>Expense List</h3>
+        <div class="list-container" id="list"></div>
+      </div>
+    </div>
+    <!-- Script -->
+    <script>
+      const budgetInput = document.getElementById("total-amount");
+      const budgetButton = document.getElementById("total-amount-button");
+      const productTitle = document.getElementById("product-title");
+      const expenseInput = document.getElementById("user-amount");
+      const expenseButton = document.getElementById("check-amount");
+      const balanceAmount = document.getElementById("balance-amount");
+      const totalBudget = document.getElementById("amount");
+      const expenses = document.getElementById("expenditure-value");
+      const budgetError = document.getElementById("budget-error");
+
+      budgetButton.addEventListener("click", () => {
+        if (budgetInput.value === "") {
+          budgetError.style.display = "flex";
+        } else {
+          budgetError.style.display = "none";
+          totalBudget.innerText = budgetInput.value;
+          balance.innerText = budgetInput.value;
+          budgetInput.innerText = "";
+        }
+      });
+
+      expenseButton.addEventListener("click", () => {
+        if (productTitle.value === "" || expenseInput.value === "") {
+          document.getElementById("product-title-error").style.display = "flex";
+        } else {
+          document.getElementById("product-title-error").style.display = "none";
+          expenses.innerText = expenseInput.value;
+          totalBudget.innerText = budgetInput.value
+          const remainBalance = budgetInput.value - expenseInput.value;
+          balanceAmount.innerText = remainBalance;
+          budgetInput.value = remainBalance;
+          budgetInput.innerText = " "
+        }
+
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("expense-list");
+
+        const listName = document.createElement("input");
+        listName.classList.add("text");
+        listName.classList.add("editlist");
+        listName.setAttribute("readonly", "readonly");
+
+        listName.value += productTitle.value;
+        newDiv.appendChild(listName);
+
+        const listPrice = document.createElement("input");
+        listPrice.value += expenseInput.value;
+        listPrice.classList.add("editlist");
+        listPrice.setAttribute("readonly", "readonly");
+        newDiv.appendChild(listPrice);
+
+        const editList = document.createElement("i");
+        editList.classList.add("fas");
+        editList.classList.add("fa-edit");
+        editList.classList.add("editlist");
+        newDiv.appendChild(editList);
+
+        const deleteList = document.createElement("i");
+        deleteList.classList.add("fa");
+        deleteList.classList.add("fa-trash");
+        deleteList.classList.add("deletelist");
+        newDiv.appendChild(deleteList);
+
+        const result = document.getElementById("list").appendChild(newDiv);
+        console.log(result);
+
+        editList.addEventListener("click", () => {
+          if (editList.classList.contains("editlist")) {
+            editList.classList.remove("fa-edit");
+            editList.classList.add("fa-save");
+            editList.classList.remove("editlist");
+            listName.removeAttribute("readOnly");
+            listName.focus();
+          } else {
+            editList.classList.add("fa-edit");
+            editList.classList.remove("fa-save");
+            editList.classList.add("editlist");
+            deleteList.classList.add("fa");
+            deleteList.classList.add("fa-trash");
+            deleteList.classList.add("deletelist");
+            listName.setAttribute("readOnly", "readOnly");
+          }
+        });
+
+        deleteList.addEventListener("click", () => {
+          newDiv.remove();
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<!-- budgetButton.addEventListener("click", () => {
+    console.log(budgetInput.value, expenseInput.value);
+    const budgetValue = budgetInput.value;
+    if (budgetInput.value === "") {
+      document.getElementById("amount").innerText = 0;
+      document.getElementById("budget-error").style.display = "flex"
+    } else {
+      document.getElementById("amount").innerText = budgetValue;
+      balanceAmount.innerText = budgetValue;
+      document.getElementById("budget-error").style.display = "none"
+    }
+  });
+
+  expenseButton.addEventListener("click", () => {
+    if (expenseInput.value == "" || productTitle.value == "") {
+      document.getElementById("expenditure-value").innerText = 0;
+      document.getElementById("list").style.display = "none";
+      document.getElementById("product-title-error").style.display = "flex"
+    } else {
+      document.getElementById("expenditure-value").innerText =
+        expenseInput.value;
+      const balanceOutput = budgetInput.value - expenseInput.value;
+      balanceAmount.innerText = balanceOutput
+      document.getElementById("amount").innerText = budgetInput.value;
+      document.getElementById("product-title-error").style.display = "none"
+
+      const newDiv = document.createElement("div");
+      newDiv.classList.add("expense-list");
+
+      const listName = document.createElement("input");
+      listName.classList.add("text");
+      listName.classList.add("editlist");
+      listName.setAttribute("readonly", "readonly");
+    
+      listName.value += productTitle.value;
+      newDiv.appendChild(listName);
+
+      const listPrice = document.createElement("input");
+      listPrice.value += expenseInput.value;
+      listPrice.classList.add("editlist");
+      listPrice.setAttribute("readonly", "readonly");
+      newDiv.appendChild(listPrice);
+
+      const editList = document.createElement("i")
+      editList.classList.add("fas")
+      editList.classList.add("fa-edit")
+      editList.classList.add("editlist")
+      newDiv.appendChild(editList)
+      
+      const deleteList = document.createElement("i")
+      deleteList.classList.add("fa")
+      deleteList.classList.add("fa-trash")
+      deleteList.classList.add("deletelist")
+      newDiv.appendChild(deleteList)
+
+      const result = document.getElementById("list").appendChild(newDiv);
+      console.log(result)
+
+      editList.addEventListener("click", () => {
+        if(editList.classList.contains("editlist")){
+            editList.classList.remove("fa-edit")
+            editList.classList.add("fa-save")
+            editList.classList.remove("editlist")
+            listName.removeAttribute("readOnly") 
+            listName.focus()  
+        }else{
+            editList.classList.add("fa-edit")
+            editList.classList.remove("fa-save")
+            editList.classList.add("editlist")
+            deleteList.classList.add("fa")
+            deleteList.classList.add("fa-trash")
+            deleteList.classList.add("deletelist")
+            listName.setAttribute("readOnly", "readOnly") 
+        }
+      })
+
+      deleteList.addEventListener("click", () => {
+        newDiv.remove()
+      })
+    }
+
+  }); -->
