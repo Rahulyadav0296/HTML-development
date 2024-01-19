@@ -7,13 +7,13 @@ function AddTodo() {
   const dispatch = useDispatch();
 
   const addTodoHandler = (e) => {
-    e.preventDefautlt();
+    e.preventDefault();
     dispatch(addTodo(input));
     setInput("");
   };
 
   return (
-    <form className="space-x-3 mt-12" onSubmit={addTodoHandler}>
+    <form className="space-x-3 mt-12 text-center justify-center" onSubmit={addTodoHandler}>
       <input
         type="text"
         className="bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
